@@ -1,11 +1,23 @@
-import './mysass.scss';
+import Navbar from './components/Navbar'
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import "./App.css";
+import Home from "./pages/Home";
+import TopDinos from "./pages/TopDinos";
+import Periods from "./pages/Periods";
+
 
 function App() {
   return (
-    <div className="App">
-      <button className="btn btn-danger">Hello</button>
-      <h1>Hello Dino World</h1>
-    </div>
+    <>
+     <BrowserRouter>
+     <Navbar />
+     <Switch>
+       <Route path="/" exact component={Home} />
+       <Route path="/Periods" component={Periods} />
+       <Route path="/TopDinos" component={TopDinos} />
+     </Switch>
+     </BrowserRouter>
+    </>
   );
 }
 
