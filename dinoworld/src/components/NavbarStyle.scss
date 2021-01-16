@@ -1,29 +1,30 @@
 $bg-color:  #bd7a22;
 $icon-color:  rgb(255, 217, 0);
 
-// .navbar {
-//     background-color: $bg-color;
-//     height: 80px;
-//     display: flex;
-//     justify-content: flex-start;
-//     align-items: center;
-// }
+.navbar {
+    background-color: transparent;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   
+}
 
 .menu-bars {
-    margin-left: 2rem;
+    margin-left: 0.5rem;
     font-size: 2rem;
     background: none;
     color: $icon-color;
 
 }
 .close {
-    margin-left: 13rem;
+    margin-left: 10rem;
     color: $icon-color;
 }
 
 .nav-menu {
     background-color: $bg-color;
-    width: 250px;
+    width: 200px;
     height: 100vh;
     display: flex;
     justify-content: center;

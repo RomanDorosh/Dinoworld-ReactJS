@@ -1,5 +1,5 @@
 import * as FaIcons from "react-icons/fa";
-import * as IconName from "react-icons/io";
+// import * as IconName from "react-icons/io";
 import { useState} from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData'
@@ -18,12 +18,12 @@ function Navbar() {
                </Link>
                </div> 
                <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-                   <ul className="nav-menu-items" onClick={showsidebar}>
-                       <li className="navbar-toggle">
+                   <ul className="nav-menu-items" /*onClick={showsidebar}*/ onMouseLeave={showsidebar}>
+                       {/* <li className="navbar-toggle">
                            <Link to="#" className="menu-bars close">
-                           <IconName.IoMdCloseCircleOutline onClick={showsidebar}/>
+                           <IconName.IoMdClose onClick={showsidebar}/>
                            </Link>
-                       </li>
+                       </li> */}
                        {SidebarData.map((item, index) => {
                            return (
                                <li key={index} className={item.cName}>

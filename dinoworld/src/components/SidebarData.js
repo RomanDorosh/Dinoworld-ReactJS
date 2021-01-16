@@ -1,6 +1,7 @@
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
+import * as IconName from "react-icons/md";
+
 
 export const SidebarData = [
     {
@@ -12,13 +13,13 @@ export const SidebarData = [
     {
         title: "Periods",
         path: "/Periods",
-        icon: <IoIcons.IoIosPaper />,
+        icon: <IconName.MdTimeline />,
         cName: "nav-text"
     },
     {
         title: "Top Dinos",
         path: "/TopDinos",
-        icon: <FaIcons.FaCartPlus />,
+        icon: <FaIcons.FaTrophy />,
         cName: "nav-text"
     },
     {

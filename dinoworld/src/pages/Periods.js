@@ -1,9 +1,11 @@
+import PeriodsComponent from "../components/PeriodsComponent"
 
 function Periods() {
     return (
-        <div className="container">
-            <h1>Periods</h1>
-        </div>
+        <>
+            <PeriodsComponent />
+            
+        </>
     )
 }
 

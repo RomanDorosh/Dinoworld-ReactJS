@@ -1,9 +1,10 @@
+import TopDinosComponent from "../components/TopDinosComponent"
 
 function TopDinos() {
     return (
-        <div className="container">
-            <h1>TopDinos</h1>
-        </div>
+        <>
+            <TopDinosComponent />
+        </>
     )
 }
 
