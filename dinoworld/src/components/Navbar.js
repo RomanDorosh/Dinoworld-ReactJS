@@ -13,9 +13,16 @@ function Navbar() {
     return (
         <>
            <div className="navbar">
+
                <Link to="#" className="menu-bars">
                    <FaIcons.FaBars onMouseEnter={showsidebar}/>
                </Link>
+               <div className="logo"><Link to="/"><span>dinoworld</span></Link></div>
+               <div className="logIn">
+                   <button>Log In</button>
+                   <button>Sign In</button>
+
+               </div>
                </div> 
                <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
                    <ul className="nav-menu-items" /*onClick={showsidebar}*/ onMouseLeave={showsidebar}>

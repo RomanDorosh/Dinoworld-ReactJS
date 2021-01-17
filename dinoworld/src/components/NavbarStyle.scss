@@ -1,15 +1,73 @@
-$bg-color:  #bd7a22;
+$bg-color:  rgba(189, 122, 34, 0.3);
 $icon-color:  rgb(255, 217, 0);
 
 .navbar {
-    background-color: transparent;
-    height: 80px;
+    background-color: $bg-color;
+    min-height: 80px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-   
+    padding-top: 0px;
+}
+.logo span{
+    color: wheat;
+    text-transform: uppercase;
+    letter-spacing: 3vw;
+    font-size: 48px;
+    text-decoration: none;
+
+}
+.logo a {
+    color: rgba(189, 122, 34, 0.0);
 }
 
+.logIn button {
+    background-color: $bg-color;
+    border: 2px solid $icon-color;
+    color: wheat;
+    padding: 14px 28px;
+    margin-left: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+
+}
+
+@media only screen and (max-width: 1080px) {
+    .logo span {
+        letter-spacing: 2vw;
+        font-size: 32px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .logo span {
+        letter-spacing: 1vw;
+        font-size: 28px;
+    }
+}
+@media only screen and (max-width: 640px) {
+    .logo span {
+        letter-spacing: 3px;
+        font-size: 25px;
+    }
+    .navbar {
+        background-color: $bg-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0px;
+    }
+    .logIn button {
+        background-color: $bg-color;
+        border: 0.5px solid $icon-color;
+        color: wheat;
+        padding: 7px 14px;
+        margin-left: 7px;
+        font-size: 13px;
+        border-radius: 2px;
+    
+    }
+    
+}
 .menu-bars {
     margin-left: 0.5rem;
     font-size: 2rem;
@@ -17,26 +75,22 @@ $icon-color:  rgb(255, 217, 0);
     color: $icon-color;
 
 }
-.close {
-    margin-left: 10rem;
-    color: $icon-color;
-}
 
 .nav-menu {
     background-color: $bg-color;
+    top: 80px;
     width: 200px;
-    height: 100vh;
+    height: 92vh;
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 0;
-    left: -100%;
-    transition: 550ms;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
 }
 
 .nav-menu.active {
-    left: 0;
-    transition: 350ms;
+   transform: translateX(0%);
+   transition: transform 0.5s ease;
 }
 
 .nav-text {
@@ -50,7 +104,7 @@ $icon-color:  rgb(255, 217, 0);
 
 .nav-text a {
     text-decoration: none;
-    color: #f5f5f5;
+    color: wheat;
     font-size: 18px;
     width: 95%;
     height: 100%;
@@ -69,14 +123,14 @@ $icon-color:  rgb(255, 217, 0);
     width: 100%;
 }
 
-.navbar-toggle {
-    background-color: $bg-color;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
+// .navbar-toggle {
+//     background-color: $bg-color;
+//     width: 100%;
+//     height: 80px;
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: center;
+// }
 
 span {
     margin-left: 16px;
