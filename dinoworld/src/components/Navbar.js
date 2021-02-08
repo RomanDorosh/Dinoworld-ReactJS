@@ -3,7 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
-import "./NavbarStyle.scss";
+import "./NavbarStyle.css";
 
 function Navbar() {
   //Declare a state of side bar and give to it value "false"
