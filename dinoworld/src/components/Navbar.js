@@ -21,6 +21,11 @@ function Navbar() {
             <span>dinoworld</span>
           </Link>
         </div>
+        <div className="search-container">
+          <form action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search" />
+          </form>
+        </div>
         <div className="logIn">
           <button>Log In</button>
           <button>Sign In</button>
