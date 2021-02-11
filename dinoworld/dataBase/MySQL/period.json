@@ -1,0 +1,11 @@
+[
+{"type":"header","version":"4.9.5deb2","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"dino_database"},
+{"type":"table","name":"period","database":"dino_database","data":
+[
+{"period_id":"301","name":"Triassic"},
+{"period_id":"302","name":"Jurassic"},
+{"period_id":"303","name":"Cretaceous"}
+]
+}
+]

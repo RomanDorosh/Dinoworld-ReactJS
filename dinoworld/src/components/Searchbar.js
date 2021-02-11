@@ -1,9 +1,9 @@
-import "./Searchbar.css"
+import "./SearchbarStyle.css";
 
 export default function Searchbar() {
-    return (
-        <div>
-            <h3>Hello</h3>
-        </div>
-    )
+  return (
+    <div>
+      <h3>Hello</h3>
+    </div>
+  );
 }

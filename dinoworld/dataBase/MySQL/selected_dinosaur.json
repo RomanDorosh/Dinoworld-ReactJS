@@ -1,0 +1,12 @@
+[
+{"type":"header","version":"4.9.5deb2","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"dino_database"},
+{"type":"table","name":"selected_dinosaur","database":"dino_database","data":
+[
+{"selected_dinosaur_id":"1","user_id":"6","dinosaur_id":"13"},
+{"selected_dinosaur_id":"2","user_id":"1","dinosaur_id":"1"},
+{"selected_dinosaur_id":"3","user_id":"7","dinosaur_id":"14"},
+{"selected_dinosaur_id":"4","user_id":"5","dinosaur_id":"18"}
+]
+}
+]

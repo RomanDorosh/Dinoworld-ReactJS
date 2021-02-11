@@ -1,8 +1,7 @@
-import "./TopDinosComponent.css";
+import "./TopDinos.css";
 
 export default function TopDinos() {
   const dinos = [
-    
     {
       name: "Stegosaurus",
       weight: 7000,
@@ -78,8 +77,7 @@ export default function TopDinos() {
       period: "Jurassic",
       wasFound: "Europe",
       top: true,
-      img:
-        "https://www.wennoanimal.com/uploads/animals/original/Pterosaur.jpg",
+      img: "https://www.wennoanimal.com/uploads/animals/original/Pterosaur.jpg",
     },
     {
       name: "Allosaurus",
@@ -299,8 +297,7 @@ export default function TopDinos() {
       period: "Triassic",
       wasFound: "Europe",
       top: false,
-      img:
-        "https://images.dinosaurpictures.org/Plateosaurus_1_be90.jpg",
+      img: "https://images.dinosaurpictures.org/Plateosaurus_1_be90.jpg",
     },
     {
       name: "Unaysaurus",
@@ -312,8 +309,7 @@ export default function TopDinos() {
       period: "Triassic",
       wasFound: "South America",
       top: false,
-      img:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a6/Unaysaurus.jpg",
+      img: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Unaysaurus.jpg",
     },
   ];
 

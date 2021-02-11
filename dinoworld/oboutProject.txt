@@ -1,4 +1,4 @@
-. En landing page  se muestran todos los dinosaurios en forma de "cards" 
+. En home page se muestran todos los dinosaurios en forma de "cards" 
     con nombre y imagen
 . Habrá un search box donde se van buscando los dinos con cada tecla pulsada
 . Habrá un componente con los periodos.
@@ -14,7 +14,7 @@
 . Habrá un componente de "batalla" donde cada usario puede poner su dinosario 
     en campo de batalla contra otro dinosaurio donde se van a comparar las charasteristicas de los dos 
     dinosaurios y gana uno con las characteristicas mas altas;
-. Habrá un componente con los "top dinos" donde en principio se muestran los mas 
+. Habrá un componente con los "top dinos" donde en principio se muestran los mas famosos
     dinos, pero tambien se va a añadir uno que no esta en esta lista si tiene 
     muchos usarios (10 min) quien lo añadieron a los preferidos
 . Habra un componente tabla con todos los dinos en la base de datos

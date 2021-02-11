@@ -1,11 +1,7 @@
-import "./MainComponent.css"
+import "./MainStyle.css";
 
 function MainComponent() {
-    return (
-        <div id="bg-image">
-            
-        </div>
-    )
+  return <div id="bg-image"></div>;
 }
 
-export default MainComponent
+export default MainComponent;

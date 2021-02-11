@@ -1,11 +1,9 @@
-import TopDinosComponent from "../components/TopDinosComponent"
+import TopDinosComponent from "../components/TopDinosComponent";
 
-function TopDinos() {
-    return (
-        <>
-            <TopDinosComponent />
-        </>
-    )
+export default function TopDinos() {
+  return (
+    <>
+      <TopDinosComponent />
+    </>
+  );
 }
-
-export default TopDinos

@@ -1,12 +1,9 @@
 import MainComponent from "../components/MainComponent";
 
-function Home() {
-  
-    return (
-       <>
-        <MainComponent />
-       </>
-    )
+export default function Home() {
+  return (
+    <>
+      <MainComponent />
+    </>
+  );
 }
-
-export default Home
