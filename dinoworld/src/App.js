@@ -7,6 +7,7 @@ import Table from "./pages/Table";
 import Battlecamp from "./pages/Battlecamp";
 import Periods from "./pages/Periods";
 import Searchbar from "./components/Searchbar";
+import FormComponent from "./components/FormComponent";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/TopDinos" component={TopDinos} />
           <Route path="/Table" component={Table} />
           <Route path="/Battlecamp" component={Battlecamp} />
+          <Route path="/Form" component={FormComponent} />
         </Switch>
       </BrowserRouter>
     </>

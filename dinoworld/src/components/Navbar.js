@@ -27,15 +27,25 @@ function Navbar() {
           </form>
         </div>
         <div className="logIn">
-          <button>Log In</button>
-          <button>Sign In</button>
+          <button>
+            <span>Log In</span>
+          </button>
+          <button>
+            <Link to="/Form">
+              <span>Sign Up</span>
+            </Link>
+          </button>
         </div>
       </div>
+
+      {/* Changes a class depending of a state of side bar */}
+
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul
           className="nav-menu-items"
           onClick={showsidebar} /*</nav>onMouseLeave={showsidebar}*/
         >
+          {/* The "map" method from stored data made a bunch of links for a sidebar */}
           {SidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName}>

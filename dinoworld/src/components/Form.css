@@ -1,0 +1,17 @@
+#bg-image-form {
+  margin-top: -80px;
+  height: 100vh;
+  background-image: url("../images/BgImage.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding-top: 10em;
+}
+.form-content {
+  color: whitesmoke;
+  background-color: rgba(189, 122, 34, 0.3);
+  width: 600px;
+  margin: auto;
+  padding: 30px;
+  margin-top: 20px;
+}
