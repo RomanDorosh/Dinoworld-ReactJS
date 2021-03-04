@@ -15,3 +15,8 @@
   padding: 30px;
   margin-top: 20px;
 }
+
+.form-content p {
+  color: rgb(255, 53, 53);
+  font-size: 0.8em;
+}
