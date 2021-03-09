@@ -3,6 +3,7 @@ import * as AiIcons from "react-icons/ai";
 import * as IconName from "react-icons/md";
 import * as GiIcon from "react-icons/gi";
 
+
 export const SidebarData = [
   {
     title: "Dinos",
@@ -32,6 +33,12 @@ export const SidebarData = [
     title: "Battlecamp",
     path: "/Battlecamp",
     icon: <GiIcon.GiBattleAxe />,
+    cName: "nav-text",
+  },
+  {
+    title: "Favourite",
+    path: "/Favourite",
+    icon: <IconName.MdFavorite />,
     cName: "nav-text",
   },
 ];

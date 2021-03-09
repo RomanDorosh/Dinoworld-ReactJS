@@ -7,3 +7,8 @@
   font-family: "Potta One", cursive;
   /* overflow: hidden; */
 }
+
+h1 {
+  padding: 100px;
+  color: aliceblue;
+}

@@ -1,11 +1,12 @@
 import "./Periods.css";
 
-export default function Periods() {
+export default function Periods({dinos}) {
+
   return (
-    <div id="bg-img">
-      <h1>Triasic</h1>
-      <h1>Jurassic</h1>
-      <h1>Cretaceous</h1>
+    <div id="bg-image-periods">
+      <h1 className="periods">Triasic</h1>
+      <h1 className="periods">Jurassic</h1>
+      <h1 className="periods">Cretaceous</h1>
     </div>
   );
 }

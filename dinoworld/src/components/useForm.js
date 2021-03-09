@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 //Creating a custom hook for form validation
 
-const useForm = (validateForm) => {
+const useForm = (callback, validateForm) => {
   const [values, setValues] = useState({
     name: "",
     lastname: "",
@@ -13,6 +13,8 @@ const useForm = (validateForm) => {
   });
 
   const [errors, setErrors] = useState({});
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,8 +31,15 @@ const useForm = (validateForm) => {
     e.preventDefault();
 
     setErrors(validateForm(values));
+    setIsSubmitting(true);
     console.log(errors);
   };
+
+  useEffect(() => {
+    if(Object.keys(errors).length === 0 && isSubmitting) {
+      callback();
+    }
+  }, [errors]);
 
   return { handleChange, values, handleSubmit, errors };
 };

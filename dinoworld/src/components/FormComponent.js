@@ -11,8 +11,7 @@ const FormComponent = () => {
 
   return (
     <div>
-      <FormSignUp />
-      {!isSubmitted ? <FormSignUp submitForm={submitForm} /> : <FormSuccess />}
+      {!isSubmitted ? (<FormSignUp submitForm={submitForm} />) : (<FormSuccess />)}
     </div>
   );
 };

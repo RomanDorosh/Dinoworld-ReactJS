@@ -3,7 +3,8 @@ import React from "react";
 function FormSuccess() {
   return (
     <div>
-      <h1>Thanks for create your account</h1>
+      <div>Thanks for create your account</div>
+      <img src="" alt="success-image"/>
     </div>
   );
 }

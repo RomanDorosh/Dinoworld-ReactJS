@@ -1,9 +1,9 @@
-#bg-image {
-    margin-top: -80px;
-    height: 100vh;
-    background-image: url("../images/BgImage.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    z-index: -1;
+#bg-image-main {
+  margin-top: -80px;
+  height: 100vh;
+  background-image: url("../images/BgImage.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1;
 }

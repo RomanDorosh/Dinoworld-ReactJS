@@ -3,8 +3,8 @@ import "./Form.css";
 import useForm from "./useForm";
 import validateForm from "./validateForm";
 
-const FormSignUp = () => {
-  const { handleChange, values, handleSubmit, errors } = useForm(validateForm);
+const FormSignUp = ({submitForm}) => {
+  const { handleChange, values, handleSubmit, errors } = useForm(submitForm, validateForm);
 
   return (
     <div id="bg-image-form">
