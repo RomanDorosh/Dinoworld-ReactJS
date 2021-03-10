@@ -3,7 +3,7 @@ import "./Battlecamp.css"
 
 export default function BattlecampComponent({dinos}) {
   return (
-    <div id="bg-img-battlecamp">
+    <div>
       <h1>Here will be a battle</h1>
     </div>
   );

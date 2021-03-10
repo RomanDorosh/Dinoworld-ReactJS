@@ -1,11 +1,11 @@
 import React from "react";
 import "./Table.css";
+import { Link } from "react-router-dom";
 
 export default function TableComponent({dinos}) {
 
   return (
-    <div id="bg-img-table">
-      <div className="">
+      <div>
         <table className=" table table-hover">
           <thead>
             <tr>
@@ -22,7 +22,7 @@ export default function TableComponent({dinos}) {
             {dinos.map((dino) => {
               return (
                 //Will need to change to an index as a key and add link to every dino
-                <tr key={dino.name} className="table-warning">
+                <tr key={dino.id} className="">
                   <td>{dino.name}</td>
                   <td>{dino.weight}</td>
                   <td>{dino.height}</td>
@@ -36,6 +36,5 @@ export default function TableComponent({dinos}) {
           </tbody>
         </table>
       </div>
-    </div>
   );
 }

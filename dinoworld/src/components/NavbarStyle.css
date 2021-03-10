@@ -1,4 +1,3 @@
-
 .navbar {
   background-color: rgba(189, 122, 34, 0.3);
   min-height: 80px;
@@ -24,7 +23,7 @@
 
 .logIn button {
   background-color: rgba(189, 122, 34, 0.3);
-  border: 2px solid  rgb(255, 217, 0);
+  border: 2px solid rgb(255, 217, 0);
   color: wheat;
   padding: 7px 14px;
   margin-left: 10px;
@@ -60,7 +59,7 @@
     padding-top: 0px;
   }
   .logIn button {
-    border: 0.5px solid  rgb(255, 217, 0);
+    border: 0.5px solid rgb(255, 217, 0);
     color: wheat;
     padding: 4px 7px;
     margin-left: 7px;
@@ -72,7 +71,7 @@
   margin-left: 0.5rem;
   font-size: 2rem;
   background: none;
-  color:  rgb(255, 217, 0);
+  color: rgb(255, 217, 0);
 }
 
 .nav-menu {
@@ -140,7 +139,6 @@ span {
 
 .search-container {
   width: 25%;
-
 }
 .search-container input {
   width: 100%;

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DinoComponent({dinos}) {
+export default function Dino({dinos}) {
   return (
     <div>
       <h1>Hello I am Dino</h1>

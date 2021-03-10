@@ -1,4 +1,4 @@
-#bg-img-top-dinos {
+/* #bg-img-top-dinos {
   margin-top: -160px;
   height: 100vh;
   background-image: url("../images/BgImageTopDinos.jpg");
@@ -6,10 +6,10 @@
   background-position: center center;
   background-repeat: no-repeat;
   z-index: -1;
-}
+} */
 
 .grid-container {
-  padding-top: 80px;
+  /* padding-top: 80px; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   grid-template-rows: 1fr 1fr;

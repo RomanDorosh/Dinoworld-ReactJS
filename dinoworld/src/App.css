@@ -8,7 +8,40 @@
   /* overflow: hidden; */
 }
 
+body {
+  /* margin-top: -160px; */
+  height: 100vh;
+  background-image: url("./images/BgImage.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  z-index: -1;
+}
+
 h1 {
   padding: 100px;
   color: aliceblue;
+}
+
+tr {
+  background-color: rgba(189, 122, 34, 0.3);
+}
+
+td {
+  color: rgb(255, 211, 200);
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: antiquewhite;
+  text-align: center;
+}
+
+footer a:hover {
+  text-decoration: none;
 }

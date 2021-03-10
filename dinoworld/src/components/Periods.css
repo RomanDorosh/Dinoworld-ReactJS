@@ -1,4 +1,4 @@
-#bg-image-periods {
+/* #bg-image-periods {
   margin-top: -80px;
   height: 100vh;
   background-image: url("../images/BgImage.jpg");
@@ -6,7 +6,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   z-index: -1;
-}
+} */
 
 h1.periods {
   padding: 100px;

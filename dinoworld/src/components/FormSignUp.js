@@ -7,7 +7,6 @@ const FormSignUp = ({submitForm}) => {
   const { handleChange, values, handleSubmit, errors } = useForm(submitForm, validateForm);
 
   return (
-    <div id="bg-image-form">
       <div className="form-content">
         <form action="" onSubmit={handleSubmit}>
           <h1>Begin your journey in DinoWord by creating an account</h1>
@@ -107,7 +106,6 @@ const FormSignUp = ({submitForm}) => {
           <button type="submit">Sign Up</button>
         </form>
       </div>
-    </div>
   );
 };
 
