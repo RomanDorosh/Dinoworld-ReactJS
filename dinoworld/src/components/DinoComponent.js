@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-export default function Dino({ dinos }) {
+export default function DinoComponent({ dinos }) {
   console.log(dinos);
   return (
     <div>

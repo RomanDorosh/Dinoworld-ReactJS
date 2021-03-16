@@ -1,13 +1,13 @@
-import DinoComponent from "../components/DinoComponent";
+import CardGameComponent from "../components/CardGameComponent";
 import { useContext } from "react";
 import { DinoContext } from "../App";
 
-export default function Dino() {
+export default function CardGame() {
   const dinos = useContext(DinoContext);
 
   return (
     <div>
-      <DinoComponent dinos={dinos} />
+      <CardGameComponent dinos={dinos} />
     </div>
   );
 }
