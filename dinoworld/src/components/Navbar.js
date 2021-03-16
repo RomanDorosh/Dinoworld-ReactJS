@@ -28,11 +28,13 @@ function Navbar() {
         </div>
         <div className="logIn">
           <button>
-            <span>Log In</span>
+            <Link to="/FormLogIn">
+              <span>Log In</span>
+            </Link>
           </button>
           <button>
-            <Link to="/Form">
-              <span>Sign Up</span>
+            <Link to="/FormSignUp">
+              <span>Sign In</span>
             </Link>
           </button>
         </div>

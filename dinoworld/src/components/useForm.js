@@ -9,25 +9,26 @@ const useForm = (callback, validateForm) => {
     birthdate: "",
     email: "",
     password: "",
-    passwordConfirm: "",
+    passwordConfirm: ""
   });
 
   const [errors, setErrors] = useState({});
 
+  //Assign isSubmitteng to false before handleSubmit is processed
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
 
     setValues({
       ...values,
-      [name]: value,
+      [name]: value
     });
   };
 
-  //Prefent default refresh when submitting a form
+  //Prevent default refresh when submitting a form
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     setErrors(validateForm(values));
@@ -36,7 +37,7 @@ const useForm = (callback, validateForm) => {
   };
 
   useEffect(() => {
-    if(Object.keys(errors).length === 0 && isSubmitting) {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
     }
   }, [errors]);
