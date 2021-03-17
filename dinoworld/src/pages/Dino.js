@@ -1,13 +1,12 @@
 import DinoComponent from "../components/DinoComponent";
-import { useContext } from "react";
-import { DinoContext } from "../App";
 
 export default function Dino() {
-  const dinos = useContext(DinoContext);
+  // const { ID } = useParams();
 
+  console.log(ID);
   return (
-    <div>
-      <DinoComponent dinos={dinos} />
-    </div>
+    // <div>
+    //   <DinoComponent id={ID} />
+    // </div>
   );
 }

@@ -1,8 +1,31 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 
-export default function DinoComponent({ dinos }) {
-  console.log(dinos);
+export default function DinoComponent() {
+  // const { dinos } = useContext(DinoContext);
+
+  // const { ID } = useParams();
+
+  console.log("hello");
+
+  // let url = `http://localhost/finalsymfonyproject/public/index.php/dinosaur/${id}`;
+
+  // const [dino, setDino] = useState([]);
+
+  // // const [isLoaded, setIsLoaded] = useState(false);
+
+  // useEffect(() => {
+  //   console.count("single call");
+  //   fetch(url)
+  //     .then(resp => resp.json())
+  //     .then(resp => {
+  //       setDino(resp);
+  //       // setIsLoaded(true);
+  //     })
+  //     .catch(err => console.log(err));
+  // }, []);
+
+  // console.log(dino);
+
   return (
     <div>
       {/* <h1>Hello I am Dino</h1>
@@ -19,6 +42,7 @@ export default function DinoComponent({ dinos }) {
           border: "none"
         }}
       ></button> */}
+      <h1>Hello bro</h1>
     </div>
   );
 }
