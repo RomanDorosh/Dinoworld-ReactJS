@@ -1,8 +1,7 @@
-import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useState, useEffect, createContext } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { useState, useEffect, createContext } from "react";
-import { BrowserRouter, Switch, Route, useParams } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import TopDinos from "./pages/TopDinos";
@@ -13,6 +12,8 @@ import Favourite from "./pages/Favourite";
 import FormLogInComponent from "./components/FormLogInComponent";
 import FormSignUpComponent from "./components/FormSignUpComponent";
 import DinoComponent from "./components/DinoComponent";
+import EditDino from "./pages/EditDino";
+import AddDinoComponent from "./components/AddDinoComponent";
 
 // const dinos = [
 //   {
@@ -367,24 +368,23 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        {/* <Switch> */}
-        <DinoContext.Provider value={{ dinos, setDinos }}>
+      <DinoContext.Provider value={{ dinos, setDinos }}>
+        <Router>
+          <Navbar />
           <Route path="/" exact component={Home} />
           <Route path="/Periods" component={Periods} />
           <Route path="/TopDinos" component={TopDinos} />
           <Route path="/Table" component={Table} />
           <Route path="/CardGame" component={CardGame} />
-        </DinoContext.Provider>
 
-        <Route path="/Favourite" component={Favourite} />
-        <Route path="/FormLogIn" component={FormLogInComponent} />
-        <Route path="/FormSignUp" component={FormSignUpComponent} />
-        <Route path="/Dino/:id" children={<DinoComponent />}></Route>
-        {/* </Switch> */}
-        <Footer />
-      </BrowserRouter>
+          <Route path="/EditDino" component={AddDinoComponent} />
+          <Route path="/Favourite" component={Favourite} />
+          <Route path="/FormLogIn" component={FormLogInComponent} />
+          <Route path="/FormSignUp" component={FormSignUpComponent} />
+          <Route path="/Dino/:ID" children={<DinoComponent />}></Route>
+          <Footer />
+        </Router>
+      </DinoContext.Provider>
     </>
   );
 }

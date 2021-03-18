@@ -1,13 +1,13 @@
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 
-export default function DinoComponent() {
-  // const { dinos } = useContext(DinoContext);
+function DinoComponent(props) {
+  console.log(props);
 
+  // const { dinos } = useParams(DinoContext);
+  // const { x } = useState(1);
   // const { ID } = useParams();
-
-  console.log("hello");
-
-  // let url = `http://localhost/finalsymfonyproject/public/index.php/dinosaur/${id}`;
+  // let url = `http://localhost/finalsymfonyproject/public/index.php/dinosaur/${ID}`;
 
   // const [dino, setDino] = useState([]);
 
@@ -46,3 +46,5 @@ export default function DinoComponent() {
     </div>
   );
 }
+
+export default DinoComponent;

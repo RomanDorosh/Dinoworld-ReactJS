@@ -1,10 +1,12 @@
-import React from 'react'
-import FavouriteComponent from '../components/FavouriteComponent'
+import React from "react";
+// import AddDinoComponent from "../components/AddDinoComponent";
+import FavouriteComponent from "../components/FavouriteComponent";
 
 export default function Favourite() {
-    return (
-        <div>
-            <FavouriteComponent />
-        </div>
-    )
+  return (
+    <div>
+      <FavouriteComponent />
+      {/* <AddDinoComponent /> */}
+    </div>
+  );
 }

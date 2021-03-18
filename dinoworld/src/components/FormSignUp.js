@@ -21,7 +21,7 @@ const FormSignUp = ({ submitForm }) => {
             type="text"
             name="name"
             className="input-field"
-            placeholder="Enter your username"
+            placeholder="Enter your name"
             value={values.name}
             onChange={handleChange}
           />

@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "./NavbarStyle.css";
 
-function Navbar() {
+function Navbar(props) {
+  console.log(props);
   //Declare a state of side bar and give to it value "false"
   const [sidebar, setSidebar] = useState(false);
   //Using useState we change the value of sidebar variable and can show sidebar an close it
@@ -29,16 +30,16 @@ function Navbar() {
         </form> */}
         {/* </div> */}
         <div className="logIn">
-          <button>
-            <Link to="/FormLogIn">
+          <Link to="/FormLogIn">
+            <button>
               <span>Log In</span>
-            </Link>
-          </button>
-          <button>
-            <Link to="/FormSignUp">
+            </button>
+          </Link>
+          <Link to="/FormSignUp">
+            <button>
               <span>Sign In</span>
-            </Link>
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
 
