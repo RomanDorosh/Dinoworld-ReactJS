@@ -1,7 +1,6 @@
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IconName from "react-icons/md";
-import * as GiIcon from "react-icons/gi";
 
 export const SidebarData = [
   {

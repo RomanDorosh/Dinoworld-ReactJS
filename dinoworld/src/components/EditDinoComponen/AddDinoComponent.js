@@ -1,10 +1,23 @@
 import React from "react";
-import "./Form.css";
+import "../FormComponents/Form.css";
 
 export default function AddDinoComponent() {
   const handleSubmit = () => {
     console.log("You just added a new dino");
   };
+
+  const token = localStorage.getItem("mitoken");
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  };
+
+  fetch("http://localhost:8000/dinosaur", config)
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.log("Error: ", err));
 
   return (
     <div className="form-content">

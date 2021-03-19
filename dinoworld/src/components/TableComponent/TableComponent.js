@@ -1,11 +1,7 @@
 import React from "react";
-import "./Table.css";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { DinoTableContext } from "../pages/Table";
 
 export default function TableComponent({ dinos }) {
-  console.log(dinos);
   return (
     <div>
       <table className=" table table-hover">

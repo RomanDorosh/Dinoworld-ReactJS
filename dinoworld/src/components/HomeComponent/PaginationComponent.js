@@ -1,9 +1,9 @@
 import React from "react";
 import { useContext } from "react";
-import { DinoHomeContext } from "../pages/Home";
+import { DinoHomeContext } from "../../pages/Home";
 
 export default function PaginationComponent() {
-  const { setPage, page } = useContext(DinoHomeContext);
+  const { setPage } = useContext(DinoHomeContext);
 
   let arrPages = [];
 
@@ -11,21 +11,18 @@ export default function PaginationComponent() {
     arrPages.push(i);
   }
 
-  //    setPage(parseInt(e.target.innerText))
-  console.log(page);
-
   return (
     <div>
       <ul className="pagination">
         {arrPages.map(page => {
           return (
             <li className="page-item" key={page}>
-              <a
+              <button
                 className="page-link"
                 onClick={e => setPage(parseInt(e.target.innerText))}
               >
                 {page}
-              </a>
+              </button>
             </li>
           );
         })}

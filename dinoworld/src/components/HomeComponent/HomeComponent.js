@@ -1,10 +1,10 @@
-import DinoCardComponent from "./DinoCardComponent";
+import DinoCardComponent from "../DinoCardComponent/DinoCardComponent";
 import { useContext } from "react";
-import "./MainStyle.css";
+import "./HomeStyle.css";
 import PaginationComponent from "./PaginationComponent";
-import { DinoHomeContext } from "../pages/Home";
+import { DinoHomeContext } from "../../pages/Home";
 
-function MainComponent() {
+function HomeComponent() {
   //Using useContext we grab array of dinos from Home page, where we made a fetch and with "map method display every DinocardComponent
 
   const { dinosPagination } = useContext(DinoHomeContext);
@@ -24,4 +24,4 @@ function MainComponent() {
   );
 }
 
-export default MainComponent;
+export default HomeComponent;

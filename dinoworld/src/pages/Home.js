@@ -1,4 +1,4 @@
-import MainComponent from "../components/MainComponent";
+import HomeComponent from "../components/HomeComponent/HomeComponent";
 import { createContext, useEffect, useState } from "react";
 
 export const DinoHomeContext = createContext({});
@@ -20,15 +20,12 @@ export default function Home() {
     //Assigning "page" as a second argument to useEffect we will make fetch every time we change the page
   }, [page]);
 
-  // console.log(dinosAPI);
-  // console.log(dinosPagination);
-
   return (
     <>
       <DinoHomeContext.Provider
         value={{ dinosPagination, setDinosPagination, page, setPage }}
       >
-        <MainComponent />
+        <HomeComponent />
       </DinoHomeContext.Provider>
     </>
   );

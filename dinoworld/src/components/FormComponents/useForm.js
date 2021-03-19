@@ -26,9 +26,9 @@ const useForm = (callback, validateForm) => {
     });
   };
 
-  //Prevent default refresh when submitting a form
-
   const handleSubmit = e => {
+    //Prevent default refresh when submitting a form
+
     e.preventDefault();
 
     setErrors(validateForm(values));

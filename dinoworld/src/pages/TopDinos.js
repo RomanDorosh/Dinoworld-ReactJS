@@ -1,4 +1,4 @@
-import TopDinosComponent from "../components/TopDinosComponent";
+import TopDinosComponent from "../components/TopDinosComponent/TopDinosComponent";
 import { useContext } from "react";
 import { DinoContext } from "../App";
 

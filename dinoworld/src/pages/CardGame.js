@@ -1,4 +1,4 @@
-import CardGameComponent from "../components/CardGameComponent";
+import CardGameComponent from "../components/CardGameComponent/CardGameComponent";
 import { useContext } from "react";
 import { DinoContext } from "../App";
 

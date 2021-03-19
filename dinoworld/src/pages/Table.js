@@ -1,4 +1,4 @@
-import TableComponent from "../components/TableComponent";
+import TableComponent from "../components/TableComponent/TableComponent";
 import { useContext, createContext, useState } from "react";
 import { DinoContext } from "../App";
 
