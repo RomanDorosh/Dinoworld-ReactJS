@@ -15,8 +15,8 @@ export default function validateForm(values) {
     errors.birthdate = "Birthdate is required";
   }
 
-  if (!values.email) {
-    errors.email = "Email is required";
+  if (!values.username) {
+    errors.username = "Email is required";
   }
 
   if (!values.password) {

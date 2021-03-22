@@ -2,19 +2,23 @@ import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import * as IconName from "react-icons/md";
 import "./DinoComponent.css";
+import { urlApi } from "../../App";
 
 function DinoComponent() {
   const { ID } = useParams();
 
   // let url = `http://localhost/finalsymfonyproject/public/index.php/dinosaur/${ID}`;
 
+  // let url = `http://localhost:8000/dinosaur${ID}`;
+
   const [dino, setDino] = useState([]);
+
+
 
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch(
-      `http://localhost/finalsymfonyproject/public/index.php/dinosaur/${ID}`
+    fetch(`${urlApi}/dinosaur${ID}`
     )
       .then(resp => resp.json())
       .then(resp => {
@@ -27,7 +31,9 @@ function DinoComponent() {
   return (
     <div className="dinoAbout">
       <img
-        src={`http://localhost/finalsymfonyproject/public/images/${dino.img}`}
+        src={`${urlApi}/public/images/${dino.img}.jpg`}
+        // src={`${urlApi}/public/images/stegosaurus.jpg`}
+
         alt=""
       />
       <div className="dino-char">

@@ -14,6 +14,7 @@ import FormLogIn from "./pages/FormLogIn";
 import FormSignUp from "./pages/FormSignUp";
 import EditDino from "./pages/EditDino";
 
+export const urlApi = 'http://localhost:8000';
 export const DinoContext = createContext({});
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
 
   useEffect(() => {
     console.log("APP call");
-    fetch("http://localhost/finalsymfonyproject/public/index.php/dinosaur/")
+    fetch(`${urlApi}/dinosaur/`)
       .then(response => response.json())
       .then(data => setDinos(data))
       .catch(err => console.log(err));

@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 
 //Creating a custom hook for form validation
 
-const useFormSignUp = (callback, validateForm) => {
+const useFormAddDino = (callback, validateFormAddDino) => {
   const [values, setValues] = useState({
     name: "",
     lastname: "",
@@ -34,7 +34,7 @@ const useFormSignUp = (callback, validateForm) => {
 
     e.preventDefault();
 
-    setErrors(validateForm(values));
+    setErrors(validateFormAddDino(values));
     setIsSubmitting(true);
 
     const formData = new FormData();
@@ -42,21 +42,15 @@ const useFormSignUp = (callback, validateForm) => {
     formData.append("lastname", values.lastname);
     formData.append("birthdate", values.birthdate);
     formData.append("username", values.username);
-    formData.append("password", values.password);  // $request->request->get('password')
-
-
-    const data = {
-      name: values.name,
-      lastname: values.lastname
-    }
+    formData.append("password", values.password);
 
     console.log(formData);
     console.log(values);
 
-    fetch(`${urlApi}/register`, {
+    fetch(`${urlApi}/user/register`, {
       method: "POST",
       cors: "CORS",
-      body:values,
+      body:formData,
     }).then(response =>
       response
         .json()
@@ -77,4 +71,4 @@ const useFormSignUp = (callback, validateForm) => {
   return { handleChange, values, handleSubmit, errors };
 };
 
-export default useFormSignUp;
+export default useFormAddDino;

@@ -96,7 +96,7 @@ const FormSignUp = ({ submitForm }) => {
           <input
             id="email"
             type="email"
-            name="email"
+            name="username"
             className="input-field"
             placeholder="Enter your email"
             value={values.email}

@@ -1,5 +1,7 @@
 import HomeComponent from "../components/HomeComponent/HomeComponent";
 import { createContext, useEffect, useState } from "react";
+import { urlApi } from "../App";
+
 
 export const DinoHomeContext = createContext({});
 
@@ -11,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     console.log("home call");
     fetch(
-      `http://localhost/finalsymfonyproject/public/index.php/dinosaur/page${page}`
+      `${urlApi}/dinosaur/page${page}`
     )
       .then(response => response.json())
       .then(data => setDinosPagination(data))
