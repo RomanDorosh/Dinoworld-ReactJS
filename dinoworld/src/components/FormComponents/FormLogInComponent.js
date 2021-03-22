@@ -1,8 +1,8 @@
 import { useState } from "react";
 import FormLogIn from "./FormLogIn";
-import FormSuccess from "./FormSuccess";
+import FormSuccessLogIn from "./FormSuccessLogIn";
 
-const FormComponent = () => {
+const FormLogInComponent = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm() {
@@ -11,9 +11,13 @@ const FormComponent = () => {
 
   return (
     <div>
-      {!isSubmitted ? <FormLogIn submitForm={submitForm} /> : <FormSuccess />}
+      {!isSubmitted ? (
+        <FormLogIn submitForm={submitForm} />
+      ) : (
+        <FormSuccessLogIn />
+      )}
     </div>
   );
 };
 
-export default FormComponent;
+export default FormLogInComponent;

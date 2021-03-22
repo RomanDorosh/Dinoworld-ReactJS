@@ -1,41 +1,41 @@
 import "./Form.css";
-import useForm from "./useForm";
-import validateForm from "./validateForm";
+import useFormSignUp from "./useFormSignUp";
+import validateFormSignUp from "./validateFormSignUp";
 import jwt_decode from "jwt-decode";
 
 const FormSignUp = ({ submitForm }) => {
-  const { handleChange, values, handleSubmit, errors } = useForm(
+  const { handleChange, values, handleSubmit, errors } = useFormSignUp(
     submitForm,
-    validateForm
+    validateFormSignUp
   );
 
-  const config = {
-    method: "POST",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      username: "mark@mail.com",
-      password: "dino"
-    })
-  };
-  // const request = new Request("http://localhost:8000/login", config);
-  fetch("http://localhost:8000/login", config).then(response =>
-    response
-      .json()
-      .then(response => {
-        console.log("Respuesta ok: ", response);
-        localStorage.setItem("mitoken", response.token);
+  // const config = {
+  //   method: "POST",
+  //   mode: "cors",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify({
+  //     username: "mark@mail.com",
+  //     password: "dino"
+  //   })
+  // };
+  // // const request = new Request("http://localhost:8000/login", config);
+  // fetch("http://localhost:8000/login", config).then(response =>
+  //   response
+  //     .json()
+  //     .then(response => {
+  //       console.log("Respuesta ok: ", response);
+  //       localStorage.setItem("mitoken", response.token);
 
-        const decoded = jwt_decode(response.token);
-        console.log(decoded);
+  //       const decoded = jwt_decode(response.token);
+  //       console.log(decoded);
 
-        var decodedHeader = jwt_decode(response.token, { header: true });
-        console.log(decodedHeader);
-      })
-      .catch(error => console.log("Erorr: ", error))
-  );
+  //       var decodedHeader = jwt_decode(response.token, { header: true });
+  //       console.log(decodedHeader);
+  //     })
+  //     .catch(error => console.log("Erorr: ", error))
+  // );
 
   return (
     <div className="form-content">

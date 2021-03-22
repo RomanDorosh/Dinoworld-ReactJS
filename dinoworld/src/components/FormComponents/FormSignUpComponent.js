@@ -2,7 +2,7 @@ import { useState } from "react";
 import FormSignUp from "./FormSignUp";
 import FormSuccess from "./FormSuccess";
 
-const FormComponent = () => {
+const FormSignUpComponent = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm() {
@@ -11,9 +11,9 @@ const FormComponent = () => {
 
   return (
     <div>
-      {!isSubmitted ? (<FormSignUp submitForm={submitForm} />) : (<FormSuccess />)}
+      {!isSubmitted ? <FormSignUp submitForm={submitForm} /> : <FormSuccess />}
     </div>
   );
 };
 
-export default FormComponent;
+export default FormSignUpComponent;

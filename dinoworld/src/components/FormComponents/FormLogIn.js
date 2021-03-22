@@ -1,11 +1,11 @@
 import "./Form.css";
-import useForm from "./useForm";
-import validateForm from "./validateForm";
+import useFormLogIn from "./useFormLogIn";
+import validateFormLogIn from "./validateFormLogIn";
 
 const FormLogIn = ({ submitForm }) => {
-  const { handleChange, values, handleSubmit, errors } = useForm(
+  const { handleChange, values, handleSubmit, errors } = useFormLogIn(
     submitForm,
-    validateForm
+    validateFormLogIn
   );
 
   return (
@@ -20,10 +20,10 @@ const FormLogIn = ({ submitForm }) => {
           <input
             id="email"
             type="email"
-            name="email"
+            name="username"
             className="input-field"
             placeholder="Enter your email"
-            value={values.email}
+            value={values.username}
             onChange={handleChange}
           />
           {/* If value of property name is empty it will return value 
