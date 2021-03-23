@@ -1,15 +1,24 @@
 import * as FaIcons from "react-icons/fa";
 // import * as IconName from "react-icons/io";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "./NavbarStyle.css";
+import { DinoContext } from "../App";
 
 function Navbar() {
+  const { jwt, setJwt } = useContext(DinoContext);
+
+  function removeToken() {
+    localStorage.removeItem("token");
+    setJwt(null);
+  }
+
   //Declare a state of side bar and give to it value "false"
   const [sidebar, setSidebar] = useState(false);
   //Using useState we change the value of sidebar variable and can show sidebar an close it
   const showsidebar = () => setSidebar(!sidebar);
+
   return (
     <>
       <div className="navbar">
@@ -21,25 +30,26 @@ function Navbar() {
             <span>dinoworld</span>
           </Link>
         </div>
-        {/* <div className="search-container"> */}
-        {/* <Searchbar /> */}
-
-        {/* <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search" />
-        </form> */}
-        {/* </div> */}
-        <div className="logIn">
-          <Link to="/FormLogIn">
-            <button>
-              <span>Log In</span>
+        {jwt ? (
+          <div className="logIn">
+            <button onClick={() => removeToken()}>
+              <span>Log Out</span>
             </button>
-          </Link>
-          <Link to="/FormSignUp">
-            <button>
-              <span>Sign Up</span>
-            </button>
-          </Link>
-        </div>
+          </div>
+        ) : (
+          <div className="logIn">
+            <Link to="/FormLogIn">
+              <button>
+                <span>Log In</span>
+              </button>
+            </Link>
+            <Link to="/FormSignUp">
+              <button>
+                <span>Sign Up</span>
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Changes a class depending of a state of side bar */}

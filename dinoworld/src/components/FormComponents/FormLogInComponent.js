@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Home from "../../pages/Home";
 import FormLogIn from "./FormLogIn";
 import FormSuccessLogIn from "./FormSuccessLogIn";
 
@@ -14,7 +15,8 @@ const FormLogInComponent = () => {
       {!isSubmitted ? (
         <FormLogIn submitForm={submitForm} />
       ) : (
-        <FormSuccessLogIn />
+        // <FormSuccessLogIn />
+        <Home />
       )}
     </div>
   );

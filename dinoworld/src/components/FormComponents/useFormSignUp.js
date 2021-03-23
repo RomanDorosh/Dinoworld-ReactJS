@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import {urlApi} from "../../App";
+import { urlApi } from "../../App";
 import jwt_decode from "jwt-decode";
-
 
 //Creating a custom hook for form validation
 
@@ -37,26 +36,15 @@ const useFormSignUp = (callback, validateForm) => {
     setErrors(validateForm(values));
     setIsSubmitting(true);
 
-    const formData = new FormData();
-    formData.append("name", values.name);
-    formData.append("lastname", values.lastname);
-    formData.append("birthdate", values.birthdate);
-    formData.append("username", values.username);
-    formData.append("password", values.password);  // $request->request->get('password')
-
-
-    const data = {
-      name: values.name,
-      lastname: values.lastname
-    }
-
-    console.log(formData);
     console.log(values);
 
     fetch(`${urlApi}/register`, {
       method: "POST",
       cors: "CORS",
-      body:values,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(values)
     }).then(response =>
       response
         .json()

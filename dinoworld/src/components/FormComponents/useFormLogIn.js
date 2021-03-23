@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import { urlApi } from "../../App";
+import { DinoContext } from "../../App";
+import { useContext } from "react";
 
 //Creating a custom hook for form validation
 
@@ -9,6 +11,8 @@ const useForm = (callback, validateForm) => {
     username: "",
     password: ""
   });
+
+  const { jwt, setJwt } = useContext(DinoContext);
 
   const [errors, setErrors] = useState({});
 
@@ -45,11 +49,15 @@ const useForm = (callback, validateForm) => {
       response
         .json()
         .then(response => {
-          console.log("Respuesta ok: ", response);
-          localStorage.setItem("mitoken", response.token);
+          console.log("Respuesta: ", response);
+          if (response.code === 401) {
+            alert("Invalid email or password");
+          } else {
+            // localStorage.setItem("mitoken", response.token);
 
-          const decoded = jwt_decode(response.token);
-          console.log(decoded);
+            // const decoded = jwt_decode(response.token);
+            setJwt(response.token);
+          }
         })
         .catch(error => console.log("Erorr: ", error))
     );

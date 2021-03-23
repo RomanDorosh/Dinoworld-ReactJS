@@ -1,11 +1,20 @@
 import TableComponent from "../components/TableComponent/TableComponent";
-import { useContext, createContext, useState } from "react";
-import { DinoContext } from "../App";
+import { useContext, createContext, useState, useEffect } from "react";
+import { DinoContext, urlApi } from "../App";
 
 export const DinoTableContext = createContext({});
 
 export default function Table() {
-  const { dinos } = useContext(DinoContext);
+  // const { dinos } = useContext(DinoContext);
+
+  const [dinos, setDinos] = useState([]);
+
+  useEffect(() => {
+    fetch(`${urlApi}/dinosaur/`)
+      .then(response => response.json())
+      .then(data => setDinos(data))
+      .catch(err => console.log(err));
+  }, []);
 
   const [searchInput, setSearchInput] = useState("");
 

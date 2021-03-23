@@ -11,15 +11,14 @@ function DinoComponent() {
 
   // let url = `http://localhost:8000/dinosaur${ID}`;
 
+  // ${urlApi}/dinosaur${ID}
+
   const [dino, setDino] = useState([]);
-
-
 
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch(`${urlApi}/dinosaur${ID}`
-    )
+    fetch(`${urlApi}/dinosaur/${ID}`)
       .then(resp => resp.json())
       .then(resp => {
         setDino(resp);
@@ -31,17 +30,18 @@ function DinoComponent() {
   return (
     <div className="dinoAbout">
       <img
-        src={`${urlApi}/public/images/${dino.img}.jpg`}
+        src={`${urlApi}/images/${dino.img}`}
         // src={`${urlApi}/public/images/stegosaurus.jpg`}
 
         alt=""
       />
       <div className="dino-char">
         <h3>{dino.name}</h3>
-        <h6>Weight: {dino.weight}</h6>
-        <h6>Height: {dino.height}</h6>
+        <h6>Weight: {dino.weight} kilograms</h6>
+        <h6>Height: {dino.height} meters</h6>
+        <h6>Length: {dino.lenght} meters</h6>
         <h6>Diet: {isLoaded && dino.diet.name}</h6>
-        <h6>Top Speed: {dino.top_speed}</h6>
+        <h6>Top Speed: {dino.top_speed} km/h</h6>
         <h6>Period: {isLoaded && dino.period.name}</h6>
         <h6>Continent: {isLoaded && dino.continent.name}</h6>
         <button

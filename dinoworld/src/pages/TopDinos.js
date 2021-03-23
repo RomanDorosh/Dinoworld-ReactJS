@@ -1,9 +1,19 @@
 import TopDinosComponent from "../components/TopDinosComponent/TopDinosComponent";
-import { useContext } from "react";
-import { DinoContext } from "../App";
+import { useEffect, useState } from "react";
+import { urlApi } from "../App";
+// import { DinoContext } from "../App";
 
 export default function TopDinos() {
-  const { dinos } = useContext(DinoContext);
+  // const { dinos } = useContext(DinoContext);
+
+  const [dinos, setDinos] = useState([]);
+
+  useEffect(() => {
+    fetch(`${urlApi}/dinosaur/`)
+      .then(response => response.json())
+      .then(data => setDinos(data))
+      .catch(err => console.log(err));
+  }, []);
 
   return (
     <>
