@@ -2,17 +2,72 @@ import * as FaIcons from "react-icons/fa";
 // import * as IconName from "react-icons/io";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
+// import { SidebarData } from "./SidebarData";
 import "./NavbarStyle.css";
 import { DinoContext } from "../App";
+import * as AiIcons from "react-icons/ai";
+import * as IconName from "react-icons/md";
 
 function Navbar() {
   const { jwt, setJwt } = useContext(DinoContext);
 
+  const SidebarData = [
+    {
+      title: "Dinos",
+      path: "/",
+      icon: <AiIcons.AiFillHome />,
+      cName: "nav-text"
+    },
+    {
+      title: "Periods",
+      path: "/Periods",
+      icon: <IconName.MdTimeline />,
+      cName: "nav-text"
+    },
+    {
+      title: "Top Dinos",
+      path: "/TopDinos",
+      icon: <FaIcons.FaTrophy />,
+      cName: "nav-text"
+    },
+    {
+      title: "Table",
+      path: "/Table",
+      icon: <FaIcons.FaTable />,
+      cName: "nav-text"
+    },
+    {
+      title: "CardGame",
+      path: "/CardGame",
+      icon: <FaIcons.FaGamepad />,
+      cName: "nav-text"
+    },
+    {
+      title: "Favourite",
+      path: "/Favourite",
+      icon: <IconName.MdFavorite />,
+      cName: "nav-text"
+    },
+    {
+      title: "EditDino",
+      path: "/EditDino",
+      icon: <FaIcons.FaEdit />,
+      cName: "nav-text"
+    }
+  ];
+
   function removeToken() {
-    localStorage.removeItem("token");
+    localStorage.removeItem("mitoken");
     setJwt(null);
   }
+
+  const [data, setData] = useState(SidebarData);
+
+  // jwt ? setData(SidebarData) : setData((SidebarData.length -= 2));
+
+  // jwt ? console.log("Hi") : console.log("Hey");
+
+  console.log(data);
 
   //Declare a state of side bar and give to it value "false"
   const [sidebar, setSidebar] = useState(false);
@@ -60,7 +115,7 @@ function Navbar() {
           onClick={showsidebar} /*</nav>onMouseLeave={showsidebar}*/
         >
           {/* The "map" method from stored data made a bunch of links for a sidebar */}
-          {SidebarData.map((item, index) => {
+          {data.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
                 <Link to={item.path}>

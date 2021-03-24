@@ -1,17 +1,13 @@
 import { useParams } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import * as IconName from "react-icons/md";
 import "./DinoComponent.css";
-import { urlApi } from "../../App";
+import { urlApi, DinoContext } from "../../App";
 
 function DinoComponent() {
   const { ID } = useParams();
 
-  // let url = `http://localhost/finalsymfonyproject/public/index.php/dinosaur/${ID}`;
-
-  // let url = `http://localhost:8000/dinosaur${ID}`;
-
-  // ${urlApi}/dinosaur${ID}
+  const { jwt, setJwt } = useContext(DinoContext);
 
   const [dino, setDino] = useState([]);
 
@@ -27,14 +23,25 @@ function DinoComponent() {
       .catch(err => console.log(err));
   }, [ID]);
 
+  function addDinosaur() {
+    console.log("dino has been added" + ID);
+
+    fetch(`${urlApi}/favorite/add/${ID}`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        Authorization: "Bearer " + jwt
+      }
+    })
+      .then(response => response.json())
+
+      .catch(error => console.log(error));
+  }
+
   return (
     <div className="dinoAbout">
-      <img
-        src={`${urlApi}/images/${dino.img}`}
-        // src={`${urlApi}/public/images/stegosaurus.jpg`}
-
-        alt=""
-      />
+      {/* Get image of dino from a folder using property "img" where is saved name of file with that exact dino */}
+      <img src={`${urlApi}/images/${dino.img}`} alt="" />
       <div className="dino-char">
         <h3>{dino.name}</h3>
         <h6>Weight: {dino.weight} kilograms</h6>
@@ -45,10 +52,8 @@ function DinoComponent() {
         <h6>Period: {isLoaded && dino.period.name}</h6>
         <h6>Continent: {isLoaded && dino.continent.name}</h6>
         <button
-          style={{
-            backgroundColor: "rgba(189, 122, 34, 0.3)",
-            border: "none"
-          }}
+          className={jwt ? "buttonFovorite" : "displayNone"}
+          onClick={() => addDinosaur()}
         >
           <IconName.MdFavorite />
         </button>

@@ -17,6 +17,21 @@ export default function DinoCardComponent({
 }) {
   const { jwt, setJwt } = useContext(DinoContext);
 
+  function addDinosaur() {
+    console.log("dino has been added" + ID);
+
+    fetch(`${urlApi}/favorite/add/${ID}`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        Authorization: "Bearer " + jwt
+      }
+    })
+      .then(response => response.json())
+
+      .catch(error => console.log(error));
+  }
+
   return (
     <div className="grid-card">
       {/* Using Link with path indicated in route in App.js we open the Dino.js with selected dino ID in URL*/}
@@ -34,25 +49,14 @@ export default function DinoCardComponent({
         <h6>Top Speed: {top_speed} km/h</h6>
         <h6>Period: {period.name}</h6>
         <h6>Continent: {continent.name}</h6>
-        {jwt ? (
-          <button
-            style={{
-              backgroundColor: "rgba(189, 122, 34, 0.3)",
-              border: "none"
-            }}
-          >
-            <IconName.MdFavorite />
-          </button>
-        ) : (
-          <button
-            style={{
-              display: "none"
-            }}
-          >
-            <IconName.MdFavorite />
-          </button>
-        )}
       </Link>
+
+      <button
+        className={jwt ? "buttonFovorite" : "displayNone"}
+        onClick={() => addDinosaur()}
+      >
+        <IconName.MdFavorite />
+      </button>
     </div>
   );
 }

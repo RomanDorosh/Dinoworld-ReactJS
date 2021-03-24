@@ -45,3 +45,13 @@ footer {
 footer a:hover {
   text-decoration: none;
 }
+
+.buttonFovorite {
+  background-color: rgba(189, 122, 34, 0.3);
+  border: none;
+  color: rgb(255, 65, 65)
+}
+
+.displayNone {
+  display: none;
+}

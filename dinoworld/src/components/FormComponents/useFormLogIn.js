@@ -53,9 +53,9 @@ const useForm = (callback, validateForm) => {
           if (response.code === 401) {
             alert("Invalid email or password");
           } else {
-            // localStorage.setItem("mitoken", response.token);
-
+            localStorage.setItem("mitoken", response.token);
             // const decoded = jwt_decode(response.token);
+
             setJwt(response.token);
           }
         })

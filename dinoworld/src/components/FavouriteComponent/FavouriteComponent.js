@@ -1,23 +1,15 @@
 import React from "react";
+import DinoCardComponent from "../DinoCardComponent/DinoCardComponent";
 import "./Favourite.css";
 
-export default function FavouriteComponent() {
-  // const [dinos, setDinos] = useState([]);
+export default function FavouriteComponent({ dinos }) {
+  // console.log(dinos);
 
-  // useEffect(() => {
-  //   fetch("http://localhost/finalsymfonyproject/public/index.php/dinosaur")
-  //     .then(response => response.json())
-  //     .then(data => setDinos(data))
-  //     .catch(err => console.log(err));
-  // }, []);
-
-  // const dinoFirst = dinos[0];
-
-  // console.log(dinofirst);
   return (
-    <div>
-      <h1>Here will displayed users favourite dinosaurus </h1>
-      {/* <h3>Hello {dinos[0].name}</h3> */}
+    <div className="grid-container">
+      {dinos.map(dino => {
+        return <DinoCardComponent key={dino.ID} {...dino} />;
+      })}
     </div>
   );
 }

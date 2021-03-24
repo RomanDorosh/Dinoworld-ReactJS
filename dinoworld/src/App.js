@@ -20,7 +20,7 @@ export const DinoContext = createContext({});
 function App() {
   // const [dinos, setDinos] = useState([]);
 
-  const storedJwt = localStorage.getItem("token");
+  const storedJwt = localStorage.getItem("mitoken");
   const [jwt, setJwt] = useState(storedJwt || null);
 
   return (
