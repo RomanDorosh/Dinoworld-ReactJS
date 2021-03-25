@@ -21,8 +21,8 @@ export default function validateForm(values) {
 
   if (!values.password) {
     errors.password = "Password is required";
-  } else if (values.password.length < 5) {
-    errors.password = "Password needs to be 5 characters or more";
+  } else if (values.password.length < 4) {
+    errors.password = "Password needs to be 4 characters or more";
   }
 
   if (!values.passwordConfirm) {

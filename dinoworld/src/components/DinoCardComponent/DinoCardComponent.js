@@ -15,7 +15,7 @@ export default function DinoCardComponent({
   img,
   continent
 }) {
-  const { jwt, setJwt } = useContext(DinoContext);
+  const { jwt } = useContext(DinoContext);
 
   function addDinosaur() {
     console.log("dino has been added" + ID);

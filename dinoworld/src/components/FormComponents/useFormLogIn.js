@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 import { urlApi } from "../../App";
 import { DinoContext } from "../../App";
 import { useContext } from "react";
@@ -12,7 +12,7 @@ const useForm = (callback, validateForm) => {
     password: ""
   });
 
-  const { jwt, setJwt } = useContext(DinoContext);
+  const { setJwt } = useContext(DinoContext);
 
   const [errors, setErrors] = useState({});
 
@@ -51,7 +51,7 @@ const useForm = (callback, validateForm) => {
         .then(response => {
           console.log("Respuesta: ", response);
           if (response.code === 401) {
-            alert("Invalid email or password");
+            alert("Invalid email or password"); // Need to add some validation here
           } else {
             localStorage.setItem("mitoken", response.token);
             // const decoded = jwt_decode(response.token);

@@ -1,6 +1,6 @@
 import TableComponent from "../components/TableComponent/TableComponent";
-import { useContext, createContext, useState, useEffect } from "react";
-import { DinoContext, urlApi } from "../App";
+import { createContext, useState, useEffect } from "react";
+import { urlApi } from "../App";
 
 export const DinoTableContext = createContext({});
 

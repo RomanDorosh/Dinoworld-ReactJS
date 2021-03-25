@@ -7,7 +7,7 @@ import { urlApi, DinoContext } from "../../App";
 function DinoComponent() {
   const { ID } = useParams();
 
-  const { jwt, setJwt } = useContext(DinoContext);
+  const { jwt } = useContext(DinoContext);
 
   const [dino, setDino] = useState([]);
 

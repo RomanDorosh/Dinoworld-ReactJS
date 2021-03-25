@@ -61,13 +61,13 @@ function Navbar() {
     setJwt(null);
   }
 
-  const [data, setData] = useState(SidebarData);
+  // const [data, setData] = useState(SidebarData);
 
   // jwt ? setData(SidebarData) : setData((SidebarData.length -= 2));
 
   // jwt ? console.log("Hi") : console.log("Hey");
 
-  console.log(data);
+  // console.log(data);
 
   //Declare a state of side bar and give to it value "false"
   const [sidebar, setSidebar] = useState(false);
@@ -115,7 +115,7 @@ function Navbar() {
           onClick={showsidebar} /*</nav>onMouseLeave={showsidebar}*/
         >
           {/* The "map" method from stored data made a bunch of links for a sidebar */}
-          {data.map((item, index) => {
+          {SidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
                 <Link to={item.path}>

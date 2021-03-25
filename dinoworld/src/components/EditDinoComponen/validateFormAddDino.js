@@ -7,7 +7,7 @@ export default function validateForm(values) {
     errors.name = "Name is required";
   }
 
-  if (!values.weight.trim()) {
+  if (!values.weight) {
     errors.weight = "Weight is required";
   }
 
@@ -21,16 +21,19 @@ export default function validateForm(values) {
 
   if (!values.top_speed) {
     errors.top_speed = "Top speed is required";
-  } 
+  }
+
+  if (!values.period) {
+    errors.diet = "Diet is required";
+  }
 
   if (!values.diet) {
-    errors.diet = "Diet is required";
+    errors.continent = "Continent is required";
   }
 
   if (!values.continent) {
     errors.continent = "Continent is required";
-  } 
+  }
 
-  
   return errors;
 }

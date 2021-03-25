@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { urlApi } from "../../App";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 
 //Creating a custom hook for form validation
 
@@ -38,7 +38,7 @@ const useFormSignUp = (callback, validateForm) => {
 
     console.log(values);
 
-    fetch(`${urlApi}/register`, {
+    fetch(`${urlApi}/register/user`, {
       method: "POST",
       cors: "CORS",
       headers: {

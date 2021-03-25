@@ -5,7 +5,7 @@ import { urlApi, DinoContext } from "../App";
 export default function Favourite() {
   const [dinos, setDinos] = useState([]);
 
-  const { jwt, setJwt } = useContext(DinoContext);
+  const { jwt } = useContext(DinoContext);
 
   useEffect(() => {
     fetch(`${urlApi}/favorite/`, {
@@ -18,7 +18,7 @@ export default function Favourite() {
       .then(response => response.json())
       .then(data => setDinos(data))
       .catch(err => console.log(err));
-  }, []);
+  }, [jwt]);
 
   return (
     <div>

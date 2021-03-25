@@ -1,32 +1,16 @@
 import React from "react";
-import { urlApi } from "../../App";
 import "../FormComponents/Form.css";
 import useFormAddDino from "./useFormAddDino";
 import validateFormAddDino from "./validateFormAddDino";
 
-
-
-export default function AddDinoForm({submitForm}) {
-  const { handleChange, values, handleSubmit, errors } = useFormAddDino(
-    submitForm,
-    validateFormAddDino
-  );
-
-
-
-
-  // const token = localStorage.getItem("mitoken");
-
-  // const config = {
-  //   headers: {
-  //     Authorization: `Bearer ${token}`
-  //   }
-  // };
-
-  // fetch(`${urlApi}/dinosaur`, config)
-  //   .then(res => res.json())
-  //   .then(res => console.log(res))
-  //   .catch(err => console.log("Error: ", err));
+export default function AddDinoForm({ submitForm }) {
+  const {
+    handleFile,
+    handleChange,
+    values,
+    handleSubmit,
+    errors
+  } = useFormAddDino(submitForm, validateFormAddDino);
 
   return (
     <div className="form-content">
@@ -42,13 +26,13 @@ export default function AddDinoForm({submitForm}) {
             name="name"
             className="input-field"
             placeholder="Enter dino name"
-            //   value={values.name}
-            //   onChange={handleChange}
+            value={values.name}
+            onChange={handleChange}
           />
           {/* If value of property name is empty it will return value 
           of "name" property of "errors" object inside of parragraph. 
           The same for every input field*/}
-          {/* {errors.name && <p>{errors.name}</p>} */}
+          {errors.name && <p>{errors.name}</p>}
         </div>
         <div className="form-inputs">
           <label htmlFor="weight" className="form-label">
@@ -60,10 +44,10 @@ export default function AddDinoForm({submitForm}) {
             name="weight"
             className="input-field"
             placeholder="Enter weight of dino"
-            //   value={values.lastname}
-            //   onChange={handleChange}
+            value={values.weight}
+            onChange={handleChange}
           />
-          {/* {errors.lastname && <p>{errors.lastname}</p>} */}
+          {errors.weight && <p>{errors.weight}</p>}
         </div>
         <div className="form-inputs">
           <label htmlFor="height" className="form-label">
@@ -75,10 +59,10 @@ export default function AddDinoForm({submitForm}) {
             name="height"
             className="input-field"
             placeholder="Enter height of dino"
-            //   value={values.birthdate}
-            //   onChange={handleChange}
+            value={values.height}
+            onChange={handleChange}
           />
-          {/* {errors.birthdate && <p>{errors.birthdate}</p>} */}
+          {errors.height && <p>{errors.height}</p>}
         </div>
         <div className="form-inputs">
           <label htmlFor="lenght" className="form-label">
@@ -86,14 +70,14 @@ export default function AddDinoForm({submitForm}) {
           </label>
           <input
             id="lenght"
-            type="email" // maybe need to change to a number?
+            type="text" // maybe need to change to a number?
             name="lenght"
             className="input-field"
             placeholder="Enter length of dino"
-            //   value={values.email}
-            //   onChange={handleChange}
+            value={values.lenght}
+            onChange={handleChange}
           />
-          {/* {errors.email && <p>{errors.email}</p>} */}
+          {errors.lenght && <p>{errors.lenght}</p>}
         </div>
         <div className="form-inputs">
           <label htmlFor="top_speed" className="form-label">
@@ -105,10 +89,10 @@ export default function AddDinoForm({submitForm}) {
             name="top_speed"
             className="input-field"
             placeholder="Enter top speed of dinos"
-            //   value={values.password}
-            //   onChange={handleChange}
+            value={values.top_speed}
+            onChange={handleChange}
           />
-          {/* {errors.password && <p>{errors.password}</p>} */}
+          {errors.top_speed && <p>{errors.top_speed}</p>}
         </div>
         <div className="form-inputs">
           <label htmlFor="period" className="form-label">
@@ -118,14 +102,14 @@ export default function AddDinoForm({submitForm}) {
             id="period"
             name="period"
             className="input-field"
-            //   value={values.passwordConfirm}
-            //   onChange={handleChange}
+            value={values.period}
+            onChange={handleChange}
           >
             <option value="1">Triassic</option>
             <option value="2">Jurasic</option>
             <option value="3">Cretaceous</option>
           </select>
-          {/* {errors.passwordConfirm && <p>{errors.passwordConfirm}</p>} */}
+          {errors.period && <p>{errors.period}</p>}
         </div>
         <div className="form-inputs">
           <label htmlFor="diet" className="form-label">
@@ -135,14 +119,14 @@ export default function AddDinoForm({submitForm}) {
             id="diet"
             name="diet"
             className="input-field"
-            //   value={values.passwordConfirm}
-            //   onChange={handleChange}
+            value={values.diet}
+            onChange={handleChange}
           >
             <option value="1">Carnivore</option>
             <option value="2">Herbivore</option>
             <option value="3">Piscivore</option>
           </select>
-          {/* {errors.passwordConfirm && <p>{errors.passwordConfirm}</p>} */}
+          {errors.diet && <p>{errors.diet}</p>}
         </div>
         <div className="form-inputs">
           <label htmlFor="continent" className="form-label">
@@ -152,8 +136,8 @@ export default function AddDinoForm({submitForm}) {
             id="continent"
             name="continent"
             className="input-field"
-            //   value={values.passwordConfirm}
-            //   onChange={handleChange}
+            value={values.continent}
+            onChange={handleChange}
           >
             <option value="1">South America</option>
             <option value="2">North America</option>
@@ -162,6 +146,34 @@ export default function AddDinoForm({submitForm}) {
             <option value="5">Africa</option>
             <option value="6">Australia</option>
           </select>
+          {errors.continent && <p>{errors.continent}</p>}
+        </div>
+        <div className="form-inputs">
+          <label htmlFor="continent" className="form-label">
+            Is this dinosaur one of the most famous?
+          </label>
+          <select
+            id="top"
+            name="top"
+            className="input-field"
+            value={values.top}
+            onChange={handleChange}
+          >
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+        <div className="form-inputs">
+          <label htmlFor="info" className="form-label">
+            Some interesting information about this dinosaur:
+          </label>
+          <textarea
+            className="form-control-file mb-3"
+            name="info"
+            rows="4"
+            cols="50"
+            onChange={handleChange}
+          />
           {/* {errors.passwordConfirm && <p>{errors.passwordConfirm}</p>} */}
         </div>
         <div className="form-inputs">
@@ -172,7 +184,7 @@ export default function AddDinoForm({submitForm}) {
             className="form-control-file mb-3"
             type="file"
             name="img"
-            // onChange={handleFile}
+            onChange={handleFile}
           />
           {/* {errors.passwordConfirm && <p>{errors.passwordConfirm}</p>} */}
         </div>
