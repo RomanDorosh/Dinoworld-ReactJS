@@ -1,9 +1,6 @@
-/* #bg-img-battlecamp {
-  margin-top: -80px;
-  height: 100vh;
-  background-image: url("../images/BgImageTopDinos.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  z-index: -1;
-} */
+.game-grid {
+  display:flex;
+  flex-wrap: wrap;
+  height: 300px;
+  width: 400px;
+}

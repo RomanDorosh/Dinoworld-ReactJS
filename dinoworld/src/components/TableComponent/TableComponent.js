@@ -1,20 +1,54 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function TableComponent({ dinos }) {
+  let sortedDinos = [...dinos];
+  console.log(sortedDinos);
+  // console.log(dinos);
+
+  // const [tableData, setTableData] = useState(dinos);
+
+  // const ascendOrder = false;
+
+  // function sortByName() {
+  //   console.log(tableData);
+
+  //   let sortData = tableData.sort((a, b) => {
+  //     return ascendOrder ? a.name - b.name : b.name - a.name;
+  //   });
+  //   setTableData(sortData);
+  //   console.log(tableData);
+  // }
+
   return (
     <div>
       <table className=" table table-hover">
         <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Weight</th>
-            <th scope="col">Height</th>
-            <th scope="col">Length</th>
-            <th scope="col">Diet</th>
-            <th scope="col">Top Speed</th>
-            <th scope="col">Period</th>
-            <th scope="col">Continent</th>
+            <th scope="col">
+              <button type="button">Name</button>
+            </th>
+            <th scope="col">
+              <button type="button">Weight</button>
+            </th>
+            <th scope="col">
+              <button type="button">Height</button>
+            </th>
+            <th scope="col">
+              <button type="button">Length</button>
+            </th>
+            <th scope="col">
+              <button type="button">Diet</button>
+            </th>
+            <th scope="col">
+              <button type="button">Top Speed</button>
+            </th>
+            <th scope="col">
+              <button type="button">Period</button>
+            </th>
+            <th scope="col">
+              <button type="button">Continent</button>
+            </th>
           </tr>
         </thead>
         <tbody>

@@ -10,7 +10,7 @@ export default function Table() {
   const [dinos, setDinos] = useState([]);
 
   useEffect(() => {
-    fetch(`${urlApi}/dinosaur/`)
+    fetch(`${urlApi}/dinosaur/sorted`)
       .then(response => response.json())
       .then(data => setDinos(data))
       .catch(err => console.log(err));
