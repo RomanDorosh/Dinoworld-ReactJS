@@ -2,23 +2,81 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function TableComponent({ dinos }) {
-  let sortedDinos = [...dinos];
-  console.log(sortedDinos);
-  // console.log(dinos);
+  // Assign to false and change to true when button is clicked we make a toggle
 
-  // const [tableData, setTableData] = useState(dinos);
+  const [ascendOrder, setAscendOrder] = useState(false);
 
-  // const ascendOrder = false;
+  //Use one function with switch statement inside to sort diferent table columns
 
-  // function sortByName() {
-  //   console.log(tableData);
+  const orderBy = e => {
+    setAscendOrder(!ascendOrder);
 
-  //   let sortData = tableData.sort((a, b) => {
-  //     return ascendOrder ? a.name - b.name : b.name - a.name;
-  //   });
-  //   setTableData(sortData);
-  //   console.log(tableData);
-  // }
+    //Using text content of event target we can sort values of that column which has triggered the event
+
+    switch (e.target.textContent) {
+      case "Weight": {
+        let sortData = dinos.sort((a, b) => {
+          return ascendOrder ? a.weight - b.weight : b.weight - a.weight;
+        });
+        break;
+      }
+      case "Height": {
+        let sortData = dinos.sort((a, b) => {
+          return ascendOrder ? a.height - b.height : b.height - a.height;
+        });
+        break;
+      }
+      case "Name": {
+        let sortData = dinos.sort((a, b) => {
+          //With localeCompare string prototype we can sort strings
+          return ascendOrder
+            ? a.name.localeCompare(b.name)
+            : b.name.localeCompare(a.name);
+        });
+        break;
+      }
+      case "Length": {
+        let sortData = dinos.sort((a, b) => {
+          return ascendOrder ? a.lenght - b.lenght : b.lenght - a.lenght;
+        });
+        break;
+      }
+      case "Diet": {
+        let sortData = dinos.sort((a, b) => {
+          return ascendOrder
+            ? a.diet.name.localeCompare(b.diet.name)
+            : b.diet.name.localeCompare(a.diet.name);
+        });
+        break;
+      }
+      case "Period": {
+        let sortData = dinos.sort((a, b) => {
+          return ascendOrder
+            ? a.period.name.localeCompare(b.period.name)
+            : b.period.name.localeCompare(a.period.name);
+        });
+        break;
+      }
+      case "Continent": {
+        let sortData = dinos.sort((a, b) => {
+          return ascendOrder
+            ? a.continent.name.localeCompare(b.continent.name)
+            : b.continent.name.localeCompare(a.continent.name);
+        });
+        break;
+      }
+      case "Top Speed": {
+        let sortData = dinos.sort((a, b) => {
+          return ascendOrder
+            ? a.top_speed - b.top_speed
+            : b.top_speed - a.top_speed;
+        });
+        break;
+      }
+      default:
+        break;
+    }
+  };
 
   return (
     <div>
@@ -26,28 +84,76 @@ export default function TableComponent({ dinos }) {
         <thead>
           <tr>
             <th scope="col">
-              <button type="button">Name</button>
+              <button
+                className="button-table-sort"
+                type="button"
+                onClick={orderBy}
+              >
+                Name
+              </button>
             </th>
             <th scope="col">
-              <button type="button">Weight</button>
+              <button
+                className="button-table-sort"
+                type="button"
+                onClick={orderBy}
+              >
+                Weight
+              </button>
             </th>
             <th scope="col">
-              <button type="button">Height</button>
+              <button
+                className="button-table-sort"
+                type="button"
+                onClick={orderBy}
+              >
+                Height
+              </button>
             </th>
             <th scope="col">
-              <button type="button">Length</button>
+              <button
+                className="button-table-sort"
+                type="button"
+                onClick={orderBy}
+              >
+                Length
+              </button>
             </th>
             <th scope="col">
-              <button type="button">Diet</button>
+              <button
+                className="button-table-sort"
+                type="button"
+                onClick={orderBy}
+              >
+                Diet
+              </button>
             </th>
             <th scope="col">
-              <button type="button">Top Speed</button>
+              <button
+                className="button-table-sort"
+                type="button"
+                onClick={orderBy}
+              >
+                Top Speed
+              </button>
             </th>
             <th scope="col">
-              <button type="button">Period</button>
+              <button
+                className="button-table-sort"
+                type="button"
+                onClick={orderBy}
+              >
+                Period
+              </button>
             </th>
             <th scope="col">
-              <button type="button">Continent</button>
+              <button
+                className="button-table-sort"
+                type="button"
+                onClick={orderBy}
+              >
+                Continent
+              </button>
             </th>
           </tr>
         </thead>

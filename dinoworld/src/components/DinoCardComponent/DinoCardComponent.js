@@ -13,24 +13,42 @@ export default function DinoCardComponent({
   top_speed,
   period,
   img,
-  continent
+  continent,
+  users
 }) {
   const { jwt } = useContext(DinoContext);
 
-  function addDinosaur() {
-    console.log("dino has been added" + ID);
+  function toggleDinosaur() {
+    if (users.length !== 0) {
+      fetch(`${urlApi}/favorite/remove/${ID}`, {
+        method: "DELETE",
+        mode: "cors",
+        headers: {
+          Authorization: "Bearer " + jwt
+        }
+      })
+        .then(response => response.json())
 
-    fetch(`${urlApi}/favorite/add/${ID}`, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        Authorization: "Bearer " + jwt
-      }
-    })
-      .then(response => response.json())
+        .catch(error => console.log(error));
 
-      .catch(error => console.log(error));
+      console.log("dino has been added" + ID);
+    } else {
+      fetch(`${urlApi}/favorite/add/${ID}`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          Authorization: "Bearer " + jwt
+        }
+      })
+        .then(response => response.json())
+
+        .catch(error => console.log(error));
+
+      console.log("dino has been deleted" + ID);
+    }
   }
+
+  console.log(users.length);
 
   return (
     <div className="grid-card">
@@ -52,8 +70,15 @@ export default function DinoCardComponent({
       </Link>
 
       <button
-        className={jwt ? "buttonFovorite" : "displayNone"}
-        onClick={() => addDinosaur()}
+        className={
+          jwt
+            ? "buttonFovorite"
+            : "displayNone" /*,
+          users.length === 0
+            ? "buttonFovoriteInActive"
+            : "buttonFovoriteActive"*/
+        }
+        onClick={() => toggleDinosaur()}
       >
         <IconName.MdFavorite />
       </button>

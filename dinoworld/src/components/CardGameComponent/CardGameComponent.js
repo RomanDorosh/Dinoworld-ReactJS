@@ -7,13 +7,27 @@ export default function CardGameComponent({ dinos }) {
   const [clickedID, setClickedID] = useState([]);
 
   function checkForMatch() {
-    const firstDino = clickedNames[0];
-    const secondDino = clickedNames[1];
+    const firstDinoOption = clickedNames[0];
+    const secondDinoOption = clickedNames[1];
 
-    if (firstDino === secondDino) {
+    console.log(firstDinoOption);
+    console.log(secondDinoOption);
+
+    if (firstDinoOption === secondDinoOption) {
       alert("You found the match");
     }
   }
+
+  // function flipCard() {
+  //   console.log(`card fliped ${dinos.ID}`);
+  //   // const newClickedName = clickedName.push(name);
+  //   // const newClickedID = clickedID.push(ID);
+
+  //   setClickedNames(clickedNames => [...clickedNames, dinos.name]);
+  //   setClickedID(clickedID => [...clickedID, dinos.ID]);
+
+  //   console.log(clickedNames.length);
+  // }
 
   console.log(clickedNames);
   console.log(clickedID);

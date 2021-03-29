@@ -49,9 +49,25 @@ footer a:hover {
 .buttonFovorite {
   background-color: rgba(189, 122, 34, 0.3);
   border: none;
-  color: rgb(255, 65, 65)
+}
+
+.buttonFovoriteInActive {
+   background-color: rgba(189, 122, 34, 0.3);
+  border: none;
+  color: black;
+}
+
+.buttonFovoriteActive {
+   background-color: rgba(189, 122, 34, 0.3);
+  border: none;
+  color: rgb(212, 20, 20);
 }
 
 .displayNone {
   display: none;
+}
+
+.button-table-sort {
+   background-color: rgba(189, 122, 34, 0.3);
+  border: none;
 }
