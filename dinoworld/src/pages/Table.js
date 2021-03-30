@@ -5,9 +5,9 @@ import { urlApi } from "../App";
 export const DinoTableContext = createContext({});
 
 export default function Table() {
-  // const { dinos } = useContext(DinoContext);
-
   const [dinos, setDinos] = useState([]);
+
+  //Get sorted data from back-end
 
   useEffect(() => {
     fetch(`${urlApi}/dinosaur/sorted`)
@@ -18,6 +18,7 @@ export default function Table() {
 
   const [searchInput, setSearchInput] = useState("");
 
+  //Invoke function inside of props and return filtered data, then pass that data as props to the TableComponent
   function search(dinosRows) {
     return dinosRows.filter(
       dino => dino.name.toLowerCase().indexOf(searchInput) > -1

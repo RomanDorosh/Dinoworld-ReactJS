@@ -1,12 +1,11 @@
 import * as FaIcons from "react-icons/fa";
-// import * as IconName from "react-icons/io";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-// import { SidebarData } from "./SidebarData";
 import "./NavbarStyle.css";
 import { DinoContext } from "../App";
 import * as AiIcons from "react-icons/ai";
 import * as IconName from "react-icons/md";
+import jwt_decode from "jwt-decode";
 
 function Navbar() {
   const { jwt, setJwt } = useContext(DinoContext);
@@ -56,21 +55,27 @@ function Navbar() {
     }
   ];
 
+  //Remove token from local storage when "LogOut" button is pressed
   function removeToken() {
     localStorage.removeItem("mitoken");
     setJwt(null);
   }
 
-  // const [data, setData] = useState(SidebarData);
+  const [data, setData] = useState(SidebarData);
 
-  // jwt ? setData(SidebarData) : setData((SidebarData.length -= 2));
-
-  // jwt ? console.log("Hi") : console.log("Hey");
-
-  // console.log(data);
+  //Depending on if user is logged and if has role ADMIN, we reduce array of data for navbar
+  if (!jwt) {
+    SidebarData.length -= 2;
+  } else {
+    let decoded = jwt_decode(jwt);
+    if (decoded.roles[0] !== "ROLE_ADMIN") {
+      SidebarData.length -= 1;
+    }
+  }
 
   //Declare a state of side bar and give to it value "false"
   const [sidebar, setSidebar] = useState(false);
+
   //Using useState we change the value of sidebar variable and can show sidebar an close it
   const showsidebar = () => setSidebar(!sidebar);
 
@@ -87,9 +92,11 @@ function Navbar() {
         </div>
         {jwt ? (
           <div className="logIn">
-            <button onClick={() => removeToken()}>
-              <span>Log Out</span>
-            </button>
+            <Link to="/">
+              <button onClick={() => removeToken()}>
+                <span>Log Out</span>
+              </button>
+            </Link>
           </div>
         ) : (
           <div className="logIn">

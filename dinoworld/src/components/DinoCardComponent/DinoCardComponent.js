@@ -48,8 +48,6 @@ export default function DinoCardComponent({
     }
   }
 
-  console.log(users.length);
-
   return (
     <div className="grid-card">
       {/* Using Link with path indicated in route in App.js we open the Dino.js with selected dino ID in URL*/}

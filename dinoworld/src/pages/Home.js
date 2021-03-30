@@ -19,7 +19,7 @@ export default function Home() {
     //Assigning "page" as a second argument to useEffect we will make fetch every time we change the page
   }, [page]);
 
-  console.log(dinosPagination);
+  // console.log(dinosPagination);
 
   return (
     <>

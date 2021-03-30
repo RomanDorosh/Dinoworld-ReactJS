@@ -15,19 +15,19 @@ export default function TableComponent({ dinos }) {
 
     switch (e.target.textContent) {
       case "Weight": {
-        let sortData = dinos.sort((a, b) => {
+        dinos.sort((a, b) => {
           return ascendOrder ? a.weight - b.weight : b.weight - a.weight;
         });
         break;
       }
       case "Height": {
-        let sortData = dinos.sort((a, b) => {
+        dinos.sort((a, b) => {
           return ascendOrder ? a.height - b.height : b.height - a.height;
         });
         break;
       }
       case "Name": {
-        let sortData = dinos.sort((a, b) => {
+        dinos.sort((a, b) => {
           //With localeCompare string prototype we can sort strings
           return ascendOrder
             ? a.name.localeCompare(b.name)
@@ -36,13 +36,13 @@ export default function TableComponent({ dinos }) {
         break;
       }
       case "Length": {
-        let sortData = dinos.sort((a, b) => {
+        dinos.sort((a, b) => {
           return ascendOrder ? a.lenght - b.lenght : b.lenght - a.lenght;
         });
         break;
       }
       case "Diet": {
-        let sortData = dinos.sort((a, b) => {
+        dinos.sort((a, b) => {
           return ascendOrder
             ? a.diet.name.localeCompare(b.diet.name)
             : b.diet.name.localeCompare(a.diet.name);
@@ -50,7 +50,7 @@ export default function TableComponent({ dinos }) {
         break;
       }
       case "Period": {
-        let sortData = dinos.sort((a, b) => {
+        dinos.sort((a, b) => {
           return ascendOrder
             ? a.period.name.localeCompare(b.period.name)
             : b.period.name.localeCompare(a.period.name);
@@ -58,7 +58,7 @@ export default function TableComponent({ dinos }) {
         break;
       }
       case "Continent": {
-        let sortData = dinos.sort((a, b) => {
+        dinos.sort((a, b) => {
           return ascendOrder
             ? a.continent.name.localeCompare(b.continent.name)
             : b.continent.name.localeCompare(a.continent.name);
@@ -66,7 +66,7 @@ export default function TableComponent({ dinos }) {
         break;
       }
       case "Top Speed": {
-        let sortData = dinos.sort((a, b) => {
+        dinos.sort((a, b) => {
           return ascendOrder
             ? a.top_speed - b.top_speed
             : b.top_speed - a.top_speed;

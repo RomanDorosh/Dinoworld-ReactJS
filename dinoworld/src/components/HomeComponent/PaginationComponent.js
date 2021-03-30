@@ -12,7 +12,7 @@ export default function PaginationComponent() {
   }
 
   return (
-    <div>
+    <div style={{ marginLeft: "200px", marginBottom: "200px" }}>
       <ul className="pagination">
         {arrPages.map(page => {
           return (

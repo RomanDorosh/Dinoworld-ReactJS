@@ -18,8 +18,6 @@ export const urlApi = "http://localhost:8000";
 export const DinoContext = createContext({});
 
 function App() {
-  // const [dinos, setDinos] = useState([]);
-
   const storedJwt = localStorage.getItem("mitoken");
   const [jwt, setJwt] = useState(storedJwt || null);
 
