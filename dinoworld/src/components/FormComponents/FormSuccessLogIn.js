@@ -1,6 +1,7 @@
 import React from "react";
 
-function FormSuccessLogIn() {
+function FormSuccessLogIn({ values }) {
+  console.log(values);
   return (
     <div>
       <div>Hello "name of user"</div>

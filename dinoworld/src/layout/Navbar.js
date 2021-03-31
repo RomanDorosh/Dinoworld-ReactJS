@@ -17,12 +17,12 @@ function Navbar() {
       icon: <AiIcons.AiFillHome />,
       cName: "nav-text"
     },
-    {
-      title: "Periods",
-      path: "/Periods",
-      icon: <IconName.MdTimeline />,
-      cName: "nav-text"
-    },
+    // {
+    //   title: "Periods",
+    //   path: "/Periods",
+    //   icon: <IconName.MdTimeline />,
+    //   cName: "nav-text"
+    // },
     {
       title: "Top Dinos",
       path: "/TopDinos",
@@ -65,7 +65,7 @@ function Navbar() {
 
   //Depending on if user is logged and if has role ADMIN, we reduce array of data for navbar
   if (!jwt) {
-    SidebarData.length -= 2;
+    SidebarData.length -= 3;
   } else {
     let decoded = jwt_decode(jwt);
     if (decoded.roles[0] !== "ROLE_ADMIN") {

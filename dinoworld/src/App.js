@@ -8,7 +8,6 @@ import TopDinos from "./pages/TopDinos";
 import Dino from "./pages/Dino";
 import Table from "./pages/Table";
 import CardGame from "./pages/CardGame";
-import Periods from "./pages/Periods";
 import Favourite from "./pages/Favourite";
 import FormLogIn from "./pages/FormLogIn";
 import FormSignUp from "./pages/FormSignUp";
@@ -26,7 +25,6 @@ function App() {
       <Router>
         <DinoContext.Provider value={{ /*dinos, setDinos,*/ jwt, setJwt }}>
           <Navbar />
-          <Route path="/Periods" component={Periods} />
           <Route path="/Table" component={Table} />
           <Route path="/TopDinos" component={TopDinos} />
           <Route path="/CardGame" component={CardGame} />
