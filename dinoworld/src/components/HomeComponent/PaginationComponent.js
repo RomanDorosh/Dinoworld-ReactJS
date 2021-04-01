@@ -12,13 +12,13 @@ export default function PaginationComponent() {
   }
 
   return (
-    <div style={{ marginLeft: "200px", marginBottom: "200px" }}>
-      <ul className="pagination">
+    <nav className="pagination-nav">
+      <ul className="pagination pagination-lg justify-content-center">
         {arrPages.map(page => {
           return (
             <li className="page-item" key={page}>
               <button
-                className="page-link"
+                className="page-link bg-warning text-dark"
                 onClick={e => setPage(parseInt(e.target.innerText))}
               >
                 {page}
@@ -27,6 +27,6 @@ export default function PaginationComponent() {
           );
         })}
       </ul>
-    </div>
+    </nav>
   );
 }

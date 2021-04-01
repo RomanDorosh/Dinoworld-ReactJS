@@ -3,8 +3,6 @@ import DinoCardComponent from "../DinoCardComponent/DinoCardComponent";
 import "./Favourite.css";
 
 export default function FavouriteComponent({ dinos }) {
-  // console.log(dinos);
-
   return (
     <div className="grid-container">
       {dinos.map(dino => {

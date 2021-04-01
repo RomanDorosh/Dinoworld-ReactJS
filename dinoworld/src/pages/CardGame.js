@@ -3,10 +3,30 @@ import React, { useState, useContext, useEffect } from "react";
 import { urlApi, DinoContext } from "../App";
 
 export default function CardGame() {
+  const { jwt } = useContext(DinoContext);
+
   const [newGame, setNewGame] = useState(false);
   const [dinos, setDinos] = useState([]);
+  const [visibleDinos, setVisibleDinos] = useState([]);
+  const [duration, setDuration] = useState(0);
+  const [finishedDinos, setFinishedDinos] = useState([]);
+  const [winner, setWinner] = useState(false);
 
-  const { jwt } = useContext(DinoContext);
+  //Check clicked dinos for match
+  const checkForMatch = (firstIndex, secondIndex) => {
+    //IF indexes doesn't match and dinos name are equal set finished dinos with that indexes
+    if (
+      firstIndex !== secondIndex &&
+      dinos[firstIndex].name === dinos[secondIndex].name
+    ) {
+      setFinishedDinos([...finishedDinos, firstIndex, secondIndex]);
+    } else {
+      //if name doesn't match with interval we set visible dinos to an empty array
+      setTimeout(() => {
+        setVisibleDinos([]);
+      }, 1000);
+    }
+  };
 
   //With fetch we get only favourite dinos of user that is logged
   useEffect(() => {
@@ -31,11 +51,11 @@ export default function CardGame() {
             .concat(
               // Using concat method on a new list of dinos we dublicate every dino in the array
               newList.map(dino => {
-                console.log(newList);
+                // console.log(newList);
 
                 return {
                   ...dino,
-                  id: dino.id + 1 //change id property by adding a "1"
+                  id: dino.id + "1" //change id property by adding a "1" for dublicated dinos
                 };
               })
             )
@@ -48,7 +68,37 @@ export default function CardGame() {
       .catch(err => console.log(err));
   }, [jwt, newGame]);
 
-  console.log(dinos);
+  //With useEffect ckeck if all dinos have been finished(opened) and finish the game by setting winner to true
+  useEffect(() => {
+    if (finishedDinos.length > 0 && finishedDinos.length === dinos.length) {
+      setWinner(true);
+    }
+  }, [finishedDinos]);
 
-  return <div>{/* <CardGameComponent dinos={dinos} /> */}</div>;
+  return (
+    <div className="text-center p-4 d-flex flex-column">
+      <button
+        onClick={() => {
+          setNewGame(!newGame);
+          setVisibleDinos([]);
+          setFinishedDinos([]);
+          setWinner(false);
+        }}
+        className="btn btn-warning mb-4"
+      >
+        New Game
+      </button>
+      <div>
+        <CardGameComponent
+          dinos={dinos}
+          visibleDinos={visibleDinos}
+          setVisibleDinos={setVisibleDinos}
+          finishedDinos={finishedDinos}
+          checkForMatch={checkForMatch}
+        />
+        {/* If winner is true return a div with congratulation */}
+        {winner && <div>You Win!</div>}
+      </div>
+    </div>
+  );
 }

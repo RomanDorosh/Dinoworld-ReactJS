@@ -32,11 +32,9 @@ const useForm = (callback, validateForm) => {
     //Prevent default refresh when submitting a form
 
     e.preventDefault();
-    console.log(errors);
     setErrors(validateForm(values));
     setIsSubmitting(true);
-    // console.log(errors);
-    console.log(values);
+    // console.log(values);
 
     fetch(`${urlApi}/login`, {
       method: "POST",

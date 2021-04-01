@@ -2,6 +2,7 @@ import { useContext } from "react";
 import * as IconName from "react-icons/md";
 import { Link } from "react-router-dom";
 import { urlApi, DinoContext } from "../../App";
+import jwt_decode from "jwt-decode";
 
 export default function DinoCardComponent({
   ID,
@@ -17,6 +18,10 @@ export default function DinoCardComponent({
   users
 }) {
   const { jwt } = useContext(DinoContext);
+
+  // let decoded = jwt_decode(jwt);
+  // console.log(decoded.username);
+  // console.log(users);
 
   function toggleDinosaur() {
     if (users.length !== 0) {

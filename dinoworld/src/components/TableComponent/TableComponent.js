@@ -80,7 +80,7 @@ export default function TableComponent({ dinos }) {
 
   return (
     <div>
-      <table className=" table table-hover">
+      <table className=" table">
         <thead>
           <tr>
             <th scope="col">

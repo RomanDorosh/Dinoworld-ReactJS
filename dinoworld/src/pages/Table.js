@@ -29,7 +29,7 @@ export default function Table() {
     <div>
       <div className="container-fluid">
         <input
-          className="form-control me-2"
+          className="form-control me-2 background-second"
           type="search"
           placeholder="Search"
           aria-label="Search"

@@ -5,11 +5,9 @@
   margin: 0;
   padding: 0;
   font-family: "Potta One", cursive;
-  /* overflow: hidden; */
 }
 
 body {
-  /* margin-top: -160px; */
   height: 100vh;
   background-image: url("./images/BgImage.jpg");
   background-repeat: no-repeat;
@@ -24,12 +22,20 @@ h1 {
   color: aliceblue;
 }
 
+th {
+  background-color:rgba(189,122,34,0.8);
+}
+
 tr {
-  background-color: rgba(189, 122, 34, 0.3);
+  background-color: rgba(189,122,34,0.7);
+}
+
+tr:hover {
+    background-color: rgba(244,169,81,0.8);
 }
 
 td {
-  color: rgb(255, 211, 200);
+  color: rgba(39, 22, 0, 0.8);
 }
 
 footer {
@@ -70,4 +76,35 @@ footer a:hover {
 .button-table-sort {
    background-color: rgba(189, 122, 34, 0.3);
   border: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-template-rows: 1fr 1fr;
+  width: 90vw;
+  margin: 0.5rem auto;
+  gap: 1rem;
+}
+
+.grid-card {
+  margin: auto;
+  background-color: rgba(189, 122, 34, 0.9);
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.grid-card img {
+  margin: auto;
+  width: 14rem;
+  height: 9rem;
+}
+
+.pagination-nav {
+  /* margin-bottom: 5rem; */
+  margin: 1rem auto 5rem auto;
+}
+
+.background-second {
+background-color: rgba(136,78,0,0.8);
 }

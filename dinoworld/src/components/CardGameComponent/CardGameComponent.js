@@ -2,59 +2,57 @@ import DinoCardGameComponent from "./DinoCardGameComponent";
 import "./CardGame.css";
 import { useState } from "react";
 
-export default function CardGameComponent({ dinos }) {
-  const [clickedNames, setClickedNames] = useState([]);
-  const [clickedID, setClickedID] = useState([]);
-
-  function checkForMatch() {
-    const firstDinoOption = clickedNames[0];
-    const secondDinoOption = clickedNames[1];
-
-    console.log(firstDinoOption);
-    console.log(secondDinoOption);
-
-    if (firstDinoOption === secondDinoOption) {
-      alert("You found the match");
-    }
-  }
-
-  // function flipCard() {
-  //   console.log(`card fliped ${dinos.ID}`);
-  //   // const newClickedName = clickedName.push(name);
-  //   // const newClickedID = clickedID.push(ID);
-
-  //   setClickedNames(clickedNames => [...clickedNames, dinos.name]);
-  //   setClickedID(clickedID => [...clickedID, dinos.ID]);
-
-  //   console.log(clickedNames.length);
-  // }
-
-  console.log(clickedNames);
-  console.log(clickedID);
-  console.log(clickedNames.length);
-  console.log(clickedNames[0], clickedNames[1]);
-
-  if (clickedNames.length === 2) {
-    setTimeout(checkForMatch, 500);
-  }
+export default function CardGameComponent({
+  dinos,
+  visibleDinos,
+  setVisibleDinos,
+  finishedDinos,
+  checkForMatch
+}) {
   // console.log(dinos);
   return (
     <div>
-      <h3>Your score</h3>
-      Create a board
-      <div className="game-grid">
-        {dinos.map(dino => {
-          return (
-            <DinoCardGameComponent
-              key={dino.ID}
-              {...dino}
-              clickedNames={clickedNames}
-              setClickedNames={setClickedNames}
-              clickedID={clickedID}
-              setClickedID={setClickedID}
-            />
-          );
-        })}
+      <div className="grid-container">
+        {dinos.map((dino, index) => (
+          <DinoCardGameComponent
+            key={dino.id}
+            className={`${
+              visibleDinos.includes(index) ? "grid-game-card-open" : ""
+            }
+          ${
+            finishedDinos.includes(index)
+              ? "grid-game-card-open grid-card-finished"
+              : ""
+          }`}
+            onClick={() => {
+              console.log("I'm clicked");
+              if (!finishedDinos.includes(index)) {
+                //chek if finishedDino doesn't include index of current dino
+                switch (visibleDinos.length) {
+                  case 0:
+                    setVisibleDinos([index]); //Assign to oppend cards array (visibleDinos) index of current dino if it is empty
+                    break;
+                  case 1: // If oppend cards array has one element we check if it has the same index of current dino that being processed
+                    if (visibleDinos[0] !== index) {
+                      setVisibleDinos(visibleDinos.concat(index)); //if doesn't include we concat that index to the oppend card array
+
+                      //Invoked the function for check if indexes are equal by passing first element of visibleDinos array
+                      //as first argument and current index of beimg processed dino as second argument
+                      checkForMatch(visibleDinos[0], index);
+                    }
+                    break;
+                  case 2:
+                    setVisibleDinos([index]);
+                    break;
+                  default:
+                    setVisibleDinos([]);
+                }
+              }
+            }}
+            img={dino.img}
+            name={dino.name}
+          />
+        ))}
       </div>
     </div>
   );

@@ -15,9 +15,7 @@ function HomeComponent() {
           return <DinoCardComponent key={dino.ID} {...dino} />;
         })}
       </div>
-      <div>
-        <PaginationComponent />
-      </div>
+      <PaginationComponent />
     </div>
   );
 }
