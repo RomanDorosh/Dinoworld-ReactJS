@@ -17,12 +17,6 @@ function Navbar() {
       icon: <AiIcons.AiFillHome />,
       cName: "nav-text"
     },
-    // {
-    //   title: "Periods",
-    //   path: "/Periods",
-    //   icon: <IconName.MdTimeline />,
-    //   cName: "nav-text"
-    // },
     {
       title: "Top Dinos",
       path: "/TopDinos",
@@ -48,20 +42,20 @@ function Navbar() {
       cName: "nav-text"
     },
     {
-      title: "EditDino",
-      path: "/EditDino",
+      title: "Add new Dino",
+      path: "/AddDino",
       icon: <FaIcons.FaEdit />,
       cName: "nav-text"
     }
   ];
 
-  //Remove token from local storage when "LogOut" button is pressed
+  //Remove token from local storage when "LogOut" button is clicked
   function removeToken() {
     localStorage.removeItem("mitoken");
     setJwt(null);
   }
 
-  const [data, setData] = useState(SidebarData);
+  // const [data, setData] = useState(SidebarData);
 
   //Depending on if user is logged and if has role ADMIN, we reduce array of data for navbar
   if (!jwt) {

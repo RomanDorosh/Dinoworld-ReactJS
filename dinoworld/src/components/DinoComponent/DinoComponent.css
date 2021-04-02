@@ -11,8 +11,10 @@
 .dinoAbout img {
     width: 100%;
 }
-.dino-char {
-    /* display: inline-block;
-    justify-content: center;
-    align-items: center; */
+
+.hideButton {
+    display: none;
+}
+.showEditButton {
+    background-color: brown;
 }

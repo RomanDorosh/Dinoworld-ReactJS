@@ -1,9 +1,8 @@
-import AddDinoComponent from "../components/EditDinoComponen/AddDinoComponent";
-
+import EditDinoComponent from "../components/EditDinoComponent/EditDinoComponent";
 export default function EditDino() {
   return (
     <div id="Editdino">
-      <AddDinoComponent />
+      <EditDinoComponent />
     </div>
   );
 }

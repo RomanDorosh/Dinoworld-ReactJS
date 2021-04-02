@@ -1,7 +1,7 @@
 import React from "react";
 import "../FormComponents/Form.css";
 import useFormAddDino from "./useFormAddDino";
-import validateFormAddDino from "./validateFormAddDino";
+import validateForm from "./validateForm";
 
 export default function AddDinoForm({ submitForm }) {
   const {
@@ -10,7 +10,7 @@ export default function AddDinoForm({ submitForm }) {
     values,
     handleSubmit,
     errors
-  } = useFormAddDino(submitForm, validateFormAddDino);
+  } = useFormAddDino(submitForm, validateForm);
 
   return (
     <div className="form-content">
@@ -103,6 +103,7 @@ export default function AddDinoForm({ submitForm }) {
             name="period"
             className="input-field"
             value={values.period}
+            // defaultValue={{value = "1"}}
             onChange={handleChange}
           >
             <option value="1">Triassic</option>
@@ -120,6 +121,7 @@ export default function AddDinoForm({ submitForm }) {
             name="diet"
             className="input-field"
             value={values.diet}
+            // defaultValue={1}
             onChange={handleChange}
           >
             <option value="1">Carnivore</option>
@@ -137,6 +139,7 @@ export default function AddDinoForm({ submitForm }) {
             name="continent"
             className="input-field"
             value={values.continent}
+            // defaultValue={{value = "1"}}
             onChange={handleChange}
           >
             <option value="1">South America</option>
@@ -157,6 +160,7 @@ export default function AddDinoForm({ submitForm }) {
             name="top"
             className="input-field"
             value={values.top}
+            // defaultValue={{value = "0"}}
             onChange={handleChange}
           >
             <option value="0">No</option>
@@ -174,7 +178,6 @@ export default function AddDinoForm({ submitForm }) {
             cols="50"
             onChange={handleChange}
           />
-          {/* {errors.passwordConfirm && <p>{errors.passwordConfirm}</p>} */}
         </div>
         <div className="form-inputs">
           <label htmlFor="img" className="form-label">
@@ -186,7 +189,6 @@ export default function AddDinoForm({ submitForm }) {
             name="img"
             onChange={handleFile}
           />
-          {/* {errors.passwordConfirm && <p>{errors.passwordConfirm}</p>} */}
         </div>
         <button type="submit">Add new dinosaur</button>
       </form>

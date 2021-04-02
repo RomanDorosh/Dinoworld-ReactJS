@@ -12,23 +12,26 @@ import Favourite from "./pages/Favourite";
 import FormLogIn from "./pages/FormLogIn";
 import FormSignUp from "./pages/FormSignUp";
 import EditDino from "./pages/EditDino";
+import AddDino from "./pages/AddDino";
 
 export const urlApi = "http://localhost:8000";
 export const DinoContext = createContext({});
 
 function App() {
   const storedJwt = localStorage.getItem("mitoken");
+
   const [jwt, setJwt] = useState(storedJwt || null);
 
   return (
     <>
       <Router>
-        <DinoContext.Provider value={{ /*dinos, setDinos,*/ jwt, setJwt }}>
+        <DinoContext.Provider value={{ jwt, setJwt }}>
           <Navbar />
           <Route path="/Table" component={Table} />
           <Route path="/TopDinos" component={TopDinos} />
           <Route path="/CardGame" component={CardGame} />
-          <Route path="/EditDino" component={EditDino} />
+          <Route path="/EditDino/:ID" component={EditDino} />
+          <Route path="/AddDino" component={AddDino} />
           <Route path="/FormLogIn" component={FormLogIn} />
           <Route path="/FormSignUp" component={FormSignUp} />
           <Route path="/" exact component={Home} />

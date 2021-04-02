@@ -1,5 +1,4 @@
 import { urlApi } from "../../App";
-import { useState } from "react";
 import "./CardGame.css";
 
 export default function DinoCardGameComponent({ img, onClick, className }) {

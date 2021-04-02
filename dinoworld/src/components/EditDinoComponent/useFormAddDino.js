@@ -1,24 +1,26 @@
-import { useState, useEffect } from "react";
-import { urlApi } from "../../App";
+import { useState, useEffect, useContext } from "react";
+
+import { urlApi, DinoContext } from "../../App";
 
 //Creating a custom hook for form validation
 
-const useFormAddDino = (callback, validateFormAddDino) => {
+const useFormAddDino = (callback, validateForm) => {
   const [values, setValues] = useState({
     name: "",
     weight: "",
     height: "",
     lenght: "",
     top_speed: "",
-    period: "",
-    diet: "",
-    continent: "",
-    top: "",
+    period: "1",
+    diet: "1",
+    continent: "1",
+    top: "0",
     info: "",
     img: []
   });
 
-  //
+  const { jwt } = useContext(DinoContext);
+
   const [errors, setErrors] = useState({});
 
   //Assign isSubmitteng to false before handleSubmit is processed
@@ -33,6 +35,8 @@ const useFormAddDino = (callback, validateFormAddDino) => {
       [name]: value
     });
   };
+
+  console.log(values);
 
   //Handling inserted file (img)
 
@@ -52,7 +56,17 @@ const useFormAddDino = (callback, validateFormAddDino) => {
 
     e.preventDefault();
 
-    setErrors(validateFormAddDino(values));
+    const currentErrors = validateForm(values);
+    setErrors(currentErrors);
+
+    //Check if object of values have some errors, is so we  executing handle submit function
+    if (Object.values(currentErrors).some(error => error)) {
+      return;
+    }
+
+    console.log(values);
+
+    // setErrors(validateForm(values));
     setIsSubmitting(true);
 
     const formData = new FormData();
@@ -73,6 +87,9 @@ const useFormAddDino = (callback, validateFormAddDino) => {
     fetch(`${urlApi}/register/dinosaur`, {
       method: "POST",
       cors: "CORS",
+      headers: {
+        Authorization: "Bearer " + jwt
+      },
       body: formData
     }).then(response =>
       response

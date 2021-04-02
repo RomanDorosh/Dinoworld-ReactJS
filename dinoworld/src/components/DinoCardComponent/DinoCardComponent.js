@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import * as IconName from "react-icons/md";
 import { Link } from "react-router-dom";
 import { urlApi, DinoContext } from "../../App";
 import jwt_decode from "jwt-decode";
+import Swal from "sweetalert2";
 
 export default function DinoCardComponent({
   ID,
@@ -16,14 +17,21 @@ export default function DinoCardComponent({
   img,
   continent,
   users
+  // clickedButton,
+  // setClickedButton
 }) {
   const { jwt } = useContext(DinoContext);
 
-  // let decoded = jwt_decode(jwt);
-  // console.log(decoded.username);
-  // console.log(users);
+  // const [clickedButton, setClickedButton] = useState(false);
+  // console.log(clickedButton);
 
+  // console.log(setClickedButton);
+  // console.log(clickedButton);
+  // console.log(users);
   function toggleDinosaur() {
+    console.log("im clicked");
+    // setClickedButton(!clickedButton);
+
     if (users.length !== 0) {
       fetch(`${urlApi}/favorite/remove/${ID}`, {
         method: "DELETE",
@@ -36,7 +44,8 @@ export default function DinoCardComponent({
 
         .catch(error => console.log(error));
 
-      console.log("dino has been added" + ID);
+      Swal.fire(`You have removed ${name} from your favorite dinos`);
+      // alert(`You have removed ${name} from your favorite dinos`);
     } else {
       fetch(`${urlApi}/favorite/add/${ID}`, {
         method: "POST",
@@ -48,9 +57,22 @@ export default function DinoCardComponent({
         .then(response => response.json())
 
         .catch(error => console.log(error));
+      Swal.fire(`You have added ${name} to your favorite dinos`);
 
-      console.log("dino has been deleted" + ID);
+      // alert(`You have added ${name} to your favorite dinos`);
     }
+  }
+
+  let actionButton = "buttonFovorite";
+
+  if (jwt) {
+    // let decoded = jwt_decode(jwt);
+    users.forEach(element => {
+      if (true) {
+        // console.log(element);
+        actionButton = "buttonFovoriteActive";
+      }
+    });
   }
 
   return (
@@ -71,20 +93,13 @@ export default function DinoCardComponent({
         <h6>Period: {period.name}</h6>
         <h6>Continent: {continent.name}</h6>
       </Link>
-
-      <button
-        className={
-          jwt
-            ? "buttonFovorite"
-            : "displayNone" /*,
-          users.length === 0
-            ? "buttonFovoriteInActive"
-            : "buttonFovoriteActive"*/
-        }
-        onClick={() => toggleDinosaur()}
-      >
-        <IconName.MdFavorite />
-      </button>
+      <div style={{ textAlign: "center", color: "#ff6347" }}>
+        {jwt && (
+          <button className={actionButton} onClick={() => toggleDinosaur()}>
+            <IconName.MdFavorite size={25} />
+          </button>
+        )}
+      </div>
     </div>
   );
 }

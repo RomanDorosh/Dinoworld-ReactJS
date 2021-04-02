@@ -32,7 +32,12 @@ const useForm = (callback, validateForm) => {
     //Prevent default refresh when submitting a form
 
     e.preventDefault();
-    setErrors(validateForm(values));
+    const currentErrors = validateForm(values);
+    setErrors(currentErrors);
+
+    if (currentErrors.password || currentErrors.username) {
+      return;
+    }
     setIsSubmitting(true);
     // console.log(values);
 

@@ -1,11 +1,14 @@
 import React from "react";
+import Swal from "sweetalert2";
+import Home from "../../pages/Home";
 
 function FormSuccessLogIn({ values }) {
-  console.log(values);
+  // Swal.fire(`Welcome USER`);
+
+  // console.log(values);
   return (
     <div>
-      <div>Hello "name of user"</div>
-      <img src="" alt="success" />
+      <Home />
     </div>
   );
 }

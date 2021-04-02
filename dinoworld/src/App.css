@@ -53,8 +53,13 @@ footer a:hover {
 }
 
 .buttonFovorite {
-  background-color: rgba(189, 122, 34, 0.3);
+  background-color: transparent;
   border: none;
+  color: rgb(141, 66, 53);
+}
+
+.buttonFovorite:hover {
+  color: rgb(253, 56, 21);
 }
 
 .buttonFovoriteInActive {
@@ -64,9 +69,12 @@ footer a:hover {
 }
 
 .buttonFovoriteActive {
-   background-color: rgba(189, 122, 34, 0.3);
+   background-color: transparent;
   border: none;
-  color: rgb(212, 20, 20);
+  color: rgb(253, 56, 21);
+}
+.button-pagination {
+  background-color: rgba(189, 122, 34, 0.8);
 }
 
 .displayNone {

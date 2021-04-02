@@ -16,9 +16,9 @@ export default function PaginationComponent() {
       <ul className="pagination pagination-lg justify-content-center">
         {arrPages.map(page => {
           return (
-            <li className="page-item" key={page}>
+            <li className="page-item ml-4" key={page}>
               <button
-                className="page-link bg-warning text-dark"
+                className="page-link text-dark button-pagination"
                 onClick={e => setPage(parseInt(e.target.innerText))}
               >
                 {page}

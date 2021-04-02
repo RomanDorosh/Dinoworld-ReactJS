@@ -8,7 +8,6 @@ export default function CardGame() {
   const [newGame, setNewGame] = useState(false);
   const [dinos, setDinos] = useState([]);
   const [visibleDinos, setVisibleDinos] = useState([]);
-  const [duration, setDuration] = useState(0);
   const [finishedDinos, setFinishedDinos] = useState([]);
   const [winner, setWinner] = useState(false);
 
@@ -76,28 +75,30 @@ export default function CardGame() {
   }, [finishedDinos]);
 
   return (
-    <div className="text-center p-4 d-flex flex-column">
-      <button
-        onClick={() => {
-          setNewGame(!newGame);
-          setVisibleDinos([]);
-          setFinishedDinos([]);
-          setWinner(false);
-        }}
-        className="btn btn-warning mb-4"
-      >
-        New Game
-      </button>
-      <div>
-        <CardGameComponent
-          dinos={dinos}
-          visibleDinos={visibleDinos}
-          setVisibleDinos={setVisibleDinos}
-          finishedDinos={finishedDinos}
-          checkForMatch={checkForMatch}
-        />
-        {/* If winner is true return a div with congratulation */}
-        {winner && <div>You Win!</div>}
+    <div>
+      <div className="text-center p-4 d-flex flex-column">
+        <button
+          onClick={() => {
+            setNewGame(!newGame);
+            setVisibleDinos([]);
+            setFinishedDinos([]);
+            setWinner(false);
+          }}
+          className="btn btn-warning mb-4"
+        >
+          New Game
+        </button>
+        <div>
+          <CardGameComponent
+            dinos={dinos}
+            visibleDinos={visibleDinos}
+            setVisibleDinos={setVisibleDinos}
+            finishedDinos={finishedDinos}
+            checkForMatch={checkForMatch}
+          />
+          {/* If winner is true return a div with congratulation */}
+          {winner && <h1>You Win!</h1>}
+        </div>
       </div>
     </div>
   );

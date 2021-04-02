@@ -2,11 +2,10 @@ import React from "react";
 
 function FormSuccessAddDino() {
   return (
-    <div>
-      <div>Thanks for create new dinosaur</div>
-      <img src="" alt="success" />
+    <div className="container-md">
+      <h1>Thanks for create new dinosaur</h1>
     </div>
   );
-};
+}
 
 export default FormSuccessAddDino;

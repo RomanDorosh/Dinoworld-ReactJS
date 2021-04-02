@@ -3,7 +3,7 @@ import FavouriteComponent from "../components/FavouriteComponent/FavouriteCompon
 import { urlApi, DinoContext } from "../App";
 
 export default function Favourite() {
-  const [dinos, setDinos] = useState([]);
+  const [dinosFavorite, setDinosFavorite] = useState([]);
 
   const { jwt } = useContext(DinoContext);
 
@@ -16,13 +16,22 @@ export default function Favourite() {
       }
     })
       .then(response => response.json())
-      .then(data => setDinos(data))
+      .then(data => setDinosFavorite(data))
       .catch(err => console.log(err));
   }, [jwt]);
 
+  console.log(dinosFavorite);
+
+  // const favDinoObj = dinosFavorite.reduce((obj, dino) => {
+  //   obj[dino.id] = dino;
+  //   return obj;
+  // }, {});
+
+  // console.log(favDinoObj);
+
   return (
     <div>
-      <FavouriteComponent dinos={dinos} />
+      <FavouriteComponent dinosFavorite={dinosFavorite} />
     </div>
   );
 }

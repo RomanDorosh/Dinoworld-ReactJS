@@ -1,6 +1,5 @@
 import DinoCardGameComponent from "./DinoCardGameComponent";
 import "./CardGame.css";
-import { useState } from "react";
 
 export default function CardGameComponent({
   dinos,
