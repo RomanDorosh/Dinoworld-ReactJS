@@ -1,5 +1,6 @@
-import AddDinoComponent from "../components/EditDinoComponent/AddDinoComponent";
-export default function EditDino() {
+import AddDinoComponent from "../components/AddDinoComponents/AddDinoComponent";
+
+export default function AddDino() {
   return (
     <div id="addDino">
       <AddDinoComponent />

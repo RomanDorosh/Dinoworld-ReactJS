@@ -7,7 +7,6 @@ const FormLogIn = ({ submitForm }) => {
     submitForm,
     validateFormLogIn
   );
-  // console.log(values);
   return (
     <div className="form-content">
       <form action="" onSubmit={handleSubmit}>

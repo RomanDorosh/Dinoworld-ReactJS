@@ -8,7 +8,7 @@ import * as IconName from "react-icons/md";
 import jwt_decode from "jwt-decode";
 
 function Navbar() {
-  const { jwt, setJwt } = useContext(DinoContext);
+  const { jwt, setJwt, setUserRoles, setUserEmail } = useContext(DinoContext);
 
   const SidebarData = [
     {
@@ -52,10 +52,13 @@ function Navbar() {
   //Remove token from local storage when "LogOut" button is clicked
   function removeToken() {
     localStorage.removeItem("mitoken");
-    setJwt(null);
-  }
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userRoles");
 
-  // const [data, setData] = useState(SidebarData);
+    setJwt(null);
+    setUserEmail(null);
+    setUserRoles(null);
+  }
 
   //Depending on if user is logged and if has role ADMIN, we reduce array of data for navbar
   if (!jwt) {
@@ -77,7 +80,7 @@ function Navbar() {
     <>
       <div className="navbar">
         <Link to="#" className="menu-bars">
-          <FaIcons.FaBars onMouseEnter={showsidebar} />
+          <FaIcons.FaBars onClick={showsidebar} />
         </Link>
         <div className="logo">
           <Link to="/">

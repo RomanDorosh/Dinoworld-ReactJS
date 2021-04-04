@@ -1,20 +1,13 @@
 .dinoAbout {
     margin-left: 20%;
     margin-bottom: 20%;
-    width: 50%;
-     color: whitesmoke;
-  background-color: rgba(189, 122, 34, 0.3);
-  margin-top: 20px;
-  border-radius: 5px;
-  align-items: center;
+    width: 50%;        
+    color: whitesmoke;
+    background-color: rgba(189, 122, 34, 0.6);
+    margin-top: 20px;
+    border-radius: 5px;
+    align-items: center;
 }
 .dinoAbout img {
     width: 100%;
-}
-
-.hideButton {
-    display: none;
-}
-.showEditButton {
-    background-color: brown;
 }

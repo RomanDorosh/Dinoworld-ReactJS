@@ -14,6 +14,7 @@ export default function Footer() {
           href="https://www.linkedin.com/in/roman-dorosh-2b26121bb/"
           target="_blank"
           rel="noreferrer"
+          style={{ color: "wheat" }}
         >
           R.D.
         </a>

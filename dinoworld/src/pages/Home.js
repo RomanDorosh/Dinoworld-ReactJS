@@ -15,7 +15,6 @@ export default function Home() {
     fetch(`${urlApi}/dinosaur/page${page}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setDinosPagination(data);
         setIsLoading(false);
       })
@@ -39,13 +38,3 @@ export default function Home() {
     </>
   );
 }
-
-// const favDinoObj = {
-//   1: {},
-//   2: {}
-// };
-
-// map(dino => ({
-//   ...dino,
-//   isFav: favDinoObj[dino.id] !== undefined
-// }));

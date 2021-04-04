@@ -1,23 +1,34 @@
 import { useState, useEffect, useContext } from "react";
-
 import { urlApi, DinoContext } from "../../App";
+import { useParams } from "react-router-dom";
 
 //Creating a custom hook for form validation
 
-const useFormAddDino = (callback, validateForm) => {
+const useFormEditDino = (callback, validateForm) => {
   const [values, setValues] = useState({
     name: "",
     weight: "",
     height: "",
     lenght: "",
     top_speed: "",
-    period: "1",
-    diet: "1",
-    continent: "1",
-    top: "0",
+    period: "",
+    diet: "",
+    continent: "",
+    top: "",
     info: "",
     img: []
   });
+
+  const { ID } = useParams();
+
+  useEffect(() => {
+    fetch(`${urlApi}/dinosaur/${ID}`)
+      .then(resp => resp.json())
+      .then(resp => {
+        setValues(resp);
+      })
+      .catch(err => console.log(err));
+  }, [ID]);
 
   const { jwt } = useContext(DinoContext);
 
@@ -36,15 +47,11 @@ const useFormAddDino = (callback, validateForm) => {
     });
   };
 
-  console.log(values);
-
   //Handling inserted file (img)
 
   const handleFile = e => {
-    // console.log(values);
-    // console.log(e.target);
     const { name, files } = e.target;
-    // console.log(name, files);
+
     setValues({
       ...values,
       [name]: files[0]
@@ -59,14 +66,12 @@ const useFormAddDino = (callback, validateForm) => {
     const currentErrors = validateForm(values);
     setErrors(currentErrors);
 
-    //Check if object of values have some errors, is so we  executing handle submit function
+    //Check if object of values have some errors, is so we stop executing handle submit function
     if (Object.values(currentErrors).some(error => error)) {
       return;
     }
 
-    console.log(values);
-
-    // setErrors(validateForm(values));
+    setErrors(validateForm(values));
     setIsSubmitting(true);
 
     const formData = new FormData();
@@ -84,7 +89,7 @@ const useFormAddDino = (callback, validateForm) => {
 
     console.log(formData);
 
-    fetch(`${urlApi}/register/dinosaur`, {
+    fetch(`${urlApi}/dinosaur/edit/${ID}`, {
       method: "POST",
       cors: "CORS",
       headers: {
@@ -111,4 +116,4 @@ const useFormAddDino = (callback, validateForm) => {
   return { handleFile, handleChange, values, handleSubmit, errors };
 };
 
-export default useFormAddDino;
+export default useFormEditDino;

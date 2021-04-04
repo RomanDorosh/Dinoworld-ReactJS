@@ -4,33 +4,21 @@ import { Link } from "react-router-dom";
 import { urlApi, DinoContext } from "../../App";
 import jwt_decode from "jwt-decode";
 import Swal from "sweetalert2";
+import { DinoHomeContext } from "../../pages/Home";
 
 export default function DinoCardComponent({
   ID,
   name,
   weight,
-  height,
-  lenght,
   diet,
-  top_speed,
   period,
   img,
-  continent,
   users
-  // clickedButton,
-  // setClickedButton
 }) {
-  const { jwt } = useContext(DinoContext);
+  const { jwt, userEmail } = useContext(DinoContext);
 
-  // const [clickedButton, setClickedButton] = useState(false);
-  // console.log(clickedButton);
-
-  // console.log(setClickedButton);
-  // console.log(clickedButton);
-  // console.log(users);
   function toggleDinosaur() {
     console.log("im clicked");
-    // setClickedButton(!clickedButton);
 
     if (users.length !== 0) {
       fetch(`${urlApi}/favorite/remove/${ID}`, {
@@ -45,7 +33,6 @@ export default function DinoCardComponent({
         .catch(error => console.log(error));
 
       Swal.fire(`You have removed ${name} from your favorite dinos`);
-      // alert(`You have removed ${name} from your favorite dinos`);
     } else {
       fetch(`${urlApi}/favorite/add/${ID}`, {
         method: "POST",
@@ -58,18 +45,14 @@ export default function DinoCardComponent({
 
         .catch(error => console.log(error));
       Swal.fire(`You have added ${name} to your favorite dinos`);
-
-      // alert(`You have added ${name} to your favorite dinos`);
     }
   }
 
   let actionButton = "buttonFovorite";
 
   if (jwt) {
-    // let decoded = jwt_decode(jwt);
     users.forEach(element => {
-      if (true) {
-        // console.log(element);
+      if (element.email === userEmail) {
         actionButton = "buttonFovoriteActive";
       }
     });
@@ -86,12 +69,8 @@ export default function DinoCardComponent({
         <img src={`${urlApi}/images/${img}`} alt="" />
         <h3>{name}</h3>
         <h6>Weight: {weight} kilograms</h6>
-        <h6>Height: {height} meters</h6>
-        <h6>Length: {lenght} meters</h6>
         <h6>Diet: {diet.name}</h6>
-        <h6>Top Speed: {top_speed} km/h</h6>
         <h6>Period: {period.name}</h6>
-        <h6>Continent: {continent.name}</h6>
       </Link>
       <div style={{ textAlign: "center", color: "#ff6347" }}>
         {jwt && (

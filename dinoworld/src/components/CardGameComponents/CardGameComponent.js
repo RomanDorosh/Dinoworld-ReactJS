@@ -8,7 +8,6 @@ export default function CardGameComponent({
   finishedDinos,
   checkForMatch
 }) {
-  // console.log(dinos);
   return (
     <div>
       <div className="grid-container">
@@ -31,7 +30,7 @@ export default function CardGameComponent({
                   case 0:
                     setVisibleDinos([index]); //Assign to oppend cards array (visibleDinos) index of current dino if it is empty
                     break;
-                  case 1: // If oppend cards array has one element we check if it has the same index of current dino that being processed
+                  case 1: // If oppened cards array has one element we check if it has the same index of current dino that being processed
                     if (visibleDinos[0] !== index) {
                       setVisibleDinos(visibleDinos.concat(index)); //if doesn't include we concat that index to the oppend card array
 

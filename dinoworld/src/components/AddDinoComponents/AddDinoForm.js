@@ -1,7 +1,7 @@
 import React from "react";
 import "../FormComponents/Form.css";
 import useFormAddDino from "./useFormAddDino";
-import validateForm from "./validateForm";
+import validateForm from "../EditDinoComponents/validateForm";
 
 export default function AddDinoForm({ submitForm }) {
   const {
@@ -40,7 +40,7 @@ export default function AddDinoForm({ submitForm }) {
           </label>
           <input
             id="weight"
-            type="text" // maybe need to change to a number?
+            type="text"
             name="weight"
             className="input-field"
             placeholder="Enter weight of dino"
@@ -55,7 +55,7 @@ export default function AddDinoForm({ submitForm }) {
           </label>
           <input
             id="height"
-            type="text" // maybe need to change to a number?
+            type="text"
             name="height"
             className="input-field"
             placeholder="Enter height of dino"
@@ -70,7 +70,7 @@ export default function AddDinoForm({ submitForm }) {
           </label>
           <input
             id="lenght"
-            type="text" // maybe need to change to a number?
+            type="text"
             name="lenght"
             className="input-field"
             placeholder="Enter length of dino"
@@ -85,7 +85,7 @@ export default function AddDinoForm({ submitForm }) {
           </label>
           <input
             id="top_speed"
-            type="text" // maybe need to change to a number?
+            type="text"
             name="top_speed"
             className="input-field"
             placeholder="Enter top speed of dinos"
@@ -103,7 +103,6 @@ export default function AddDinoForm({ submitForm }) {
             name="period"
             className="input-field"
             value={values.period}
-            // defaultValue={{value = "1"}}
             onChange={handleChange}
           >
             <option value="1">Triassic</option>
@@ -121,7 +120,6 @@ export default function AddDinoForm({ submitForm }) {
             name="diet"
             className="input-field"
             value={values.diet}
-            // defaultValue={1}
             onChange={handleChange}
           >
             <option value="1">Carnivore</option>
@@ -139,7 +137,6 @@ export default function AddDinoForm({ submitForm }) {
             name="continent"
             className="input-field"
             value={values.continent}
-            // defaultValue={{value = "1"}}
             onChange={handleChange}
           >
             <option value="1">South America</option>
@@ -160,7 +157,6 @@ export default function AddDinoForm({ submitForm }) {
             name="top"
             className="input-field"
             value={values.top}
-            // defaultValue={{value = "0"}}
             onChange={handleChange}
           >
             <option value="0">No</option>

@@ -1,12 +1,10 @@
 import React from "react";
-
-// import { values } from "./useFormSignUp";
+import FormLogIn from "./FormLogIn";
 
 function FormSuccess() {
   return (
-    <div>
-      <div>Thanks for create your account</div>
-      <img src="" alt="success" />
+    <div className="container-md">
+      <h1>Your registration was completed succesfully</h1>
     </div>
   );
 }

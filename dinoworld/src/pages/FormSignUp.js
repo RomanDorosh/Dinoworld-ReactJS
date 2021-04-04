@@ -1,6 +1,6 @@
 import FormSignUpComponent from "../components/FormComponents/FormSignUpComponent";
 
-export default function Form() {
+export default function FormSignUp() {
   return (
     <div>
       <FormSignUpComponent />

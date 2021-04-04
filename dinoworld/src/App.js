@@ -19,13 +19,28 @@ export const DinoContext = createContext({});
 
 function App() {
   const storedJwt = localStorage.getItem("mitoken");
+  const storedEmail = localStorage.getItem("userEmail");
+  const storedRoles = localStorage.getItem("userRoles");
 
   const [jwt, setJwt] = useState(storedJwt || null);
+  const [userEmail, setUserEmail] = useState(storedEmail || null);
+  const [userRoles, setUserRoles] = useState(storedRoles || null);
+
+  console.log(userRoles, userEmail);
 
   return (
     <>
       <Router>
-        <DinoContext.Provider value={{ jwt, setJwt }}>
+        <DinoContext.Provider
+          value={{
+            jwt,
+            setJwt,
+            userRoles,
+            setUserRoles,
+            userEmail,
+            setUserEmail
+          }}
+        >
           <Navbar />
           <Route path="/Table" component={Table} />
           <Route path="/TopDinos" component={TopDinos} />

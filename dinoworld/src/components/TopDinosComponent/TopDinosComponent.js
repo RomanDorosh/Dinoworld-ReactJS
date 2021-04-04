@@ -1,5 +1,4 @@
 import DinoCardComponent from "../DinoCardComponent/DinoCardComponent";
-import "./TopDinos.css";
 
 export default function TopDinos({ dinos }) {
   return (

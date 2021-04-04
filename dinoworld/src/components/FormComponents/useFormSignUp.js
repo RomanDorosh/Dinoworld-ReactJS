@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { urlApi } from "../../App";
-// import jwt_decode from "jwt-decode";
 
 //Creating a custom hook for form validation
 
-const useFormSignUp = (callback, validateForm) => {
+const useFormSignUp = (callback, validateFormSignUp) => {
   const [values, setValues] = useState({
     name: "",
     lastname: "",
@@ -33,10 +32,15 @@ const useFormSignUp = (callback, validateForm) => {
 
     e.preventDefault();
 
-    setErrors(validateForm(values));
-    setIsSubmitting(true);
+    const currentErrors = validateFormSignUp(values);
+    setErrors(currentErrors);
 
-    console.log(values);
+    if (Object.values(currentErrors).some(error => error)) {
+      return;
+    }
+
+    setErrors(validateFormSignUp(values));
+    setIsSubmitting(true);
 
     fetch(`${urlApi}/register/user`, {
       method: "POST",

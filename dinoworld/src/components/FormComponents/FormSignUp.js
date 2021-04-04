@@ -1,7 +1,6 @@
 import "./Form.css";
 import useFormSignUp from "./useFormSignUp";
 import validateFormSignUp from "./validateFormSignUp";
-// import jwt_decode from "jwt-decode";
 
 const FormSignUp = ({ submitForm }) => {
   const { handleChange, values, handleSubmit, errors } = useFormSignUp(

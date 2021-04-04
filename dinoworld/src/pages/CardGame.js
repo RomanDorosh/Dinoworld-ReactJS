@@ -1,4 +1,4 @@
-import CardGameComponent from "../components/CardGameComponent/CardGameComponent";
+import CardGameComponent from "../components/CardGameComponents/CardGameComponent";
 import React, { useState, useContext, useEffect } from "react";
 import { urlApi, DinoContext } from "../App";
 
