@@ -10,7 +10,7 @@ npm i
 ### Run webpack development server :construction:
 To start development mode use command:
 ```javascript
-npm run start
+npm start
 ```
 ### Styles :art: and layout :pencil:
 Files src/index.css contain main CSS contants.
