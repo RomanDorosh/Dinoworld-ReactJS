@@ -19,8 +19,8 @@ Layout package in src/layout contains the most reusable components of applicatio
 
 /public - static files
 /src/components - contain main part of components
-               /CardGameComponents - contain components and CSS for application game
-               /DinoCardComponent - contain component of card that is used across most pages
+/src/components/CardGameComponents - contain components and CSS for application game
+/src/components/DinoCardComponent - contain component of card that is used across most pages
                /DinoComponent - contain component of additional information about Dinosaur and CSS file for it
                /EditDinoComponents - contain components for edit or add dinosaur
                /FavouriteComponent - contain components for users favourite dinosaurs
