@@ -18,10 +18,11 @@ Files src/index.css contain main CSS contants.
 ### Project structure :package:
 /public - static files  
 /src/components - contain main part of components  
+/src/components/AddDinoComponents - contain components for adding a dinosaur  
 /src/components/CardGameComponents - contain components and CSS for application game  
 /src/components/DinoCardComponent - contain component of card that is used across most pages  
 /src/components/DinoComponent - contain component of additional information about Dinosaur and CSS file for it  
-/src/components/EditDinoComponents - contain components for edit or add dinosaur  
+/src/components/EditDinoComponents - contain components for edit dinosaur  
 /src/components/FavouriteComponent - contain components for users favourite dinosaurs  
 /src/components/FormComponents - contain components for SignUp and LogIn forms and CSS  
 /src/components/HomeComponent - contain components for home page and pagination  
