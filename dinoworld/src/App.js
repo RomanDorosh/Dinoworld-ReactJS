@@ -18,15 +18,14 @@ export const urlApi = "http://localhost:8000";
 export const DinoContext = createContext({});
 
 function App() {
+  //Store user token. email and roles, which is get from localstorage
   const storedJwt = localStorage.getItem("mitoken");
   const storedEmail = localStorage.getItem("userEmail");
   const storedRoles = localStorage.getItem("userRoles");
 
-  const [jwt, setJwt] = useState(storedJwt || null);
-  const [userEmail, setUserEmail] = useState(storedEmail || null);
-  const [userRoles, setUserRoles] = useState(storedRoles || null);
-
-  console.log(userRoles, userEmail);
+  const [jwt, setJwt] = useState(storedJwt || null); //If user is not logged than return null
+  const [userEmail, setUserEmail] = useState(storedEmail || null); //If user is not logged than return null
+  const [userRoles, setUserRoles] = useState(storedRoles || null); //If user is not logged than return null
 
   return (
     <>

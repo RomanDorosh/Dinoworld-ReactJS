@@ -2,7 +2,7 @@ import DinoCardComponent from "../DinoCardComponent/DinoCardComponent";
 
 export default function TopDinos({ dinos }) {
   return (
-    <div className="grid-container">
+    <div className="mb-5 grid-container">
       {/* Using filter and map methods we display only "top" dinos */}
       {dinos
         .filter(dino => dino.top)

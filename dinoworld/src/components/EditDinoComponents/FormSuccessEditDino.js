@@ -1,5 +1,6 @@
 import React from "react";
 
+//Here we sent a message to the user when dino's registration  was completed succesfully
 function FormSuccessEditDino() {
   return (
     <div className="container-md">

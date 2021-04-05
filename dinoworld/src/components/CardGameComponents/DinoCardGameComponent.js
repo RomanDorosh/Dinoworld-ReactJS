@@ -1,6 +1,7 @@
 import { urlApi } from "../../App";
 import "./CardGame.css";
 
+//Return a card with img of dino
 export default function DinoCardGameComponent({ img, onClick, className }) {
   return (
     <div className={`grid-game-card ${className}`} onClick={onClick}>

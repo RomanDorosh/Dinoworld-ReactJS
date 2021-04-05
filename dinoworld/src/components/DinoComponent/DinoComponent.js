@@ -3,27 +3,33 @@ import React, { useState, useEffect, useContext } from "react";
 import * as IconName from "react-icons/md";
 import "./DinoComponent.css";
 import { urlApi, DinoContext } from "../../App";
-import jwt_decode from "jwt-decode";
 import Swal from "sweetalert2";
 
 function DinoComponent() {
+  //Using useParams hook get ID of dino that was clicked
   const { ID } = useParams();
 
   const { jwt, userRoles } = useContext(DinoContext);
 
+  //Set dino to an empty array before making fetch
   const [dino, setDino] = useState([]);
 
+  //Set to false until data is set
   const [isLoaded, setIsLoaded] = useState(false);
 
+  //Making a fetch  with use effect, with dependencie of ID
   useEffect(() => {
     fetch(`${urlApi}/dinosaur/${ID}`)
       .then(resp => resp.json())
       .then(resp => {
+        //Set response data to dino and set isLoaded to true
         setDino(resp);
         setIsLoaded(true);
       })
       .catch(err => console.log(err));
   }, [ID]);
+
+  //This function and all component I have to revise and improve  totally
 
   function toggleDinosaur() {
     if (dino.users.length !== 0) {
@@ -39,7 +45,6 @@ function DinoComponent() {
         .catch(error => console.log(error));
 
       Swal.fire(`You have removed ${dino.name} from your favorite dinos`);
-      // alert(`You have removed ${name} from your favorite dinos`);
     } else {
       fetch(`${urlApi}/favorite/add/${ID}`, {
         method: "POST",
@@ -52,11 +57,10 @@ function DinoComponent() {
 
         .catch(error => console.log(error));
       Swal.fire(`You have added ${dino.name} to your favorite dinos`);
-
-      // alert(`You have added ${name} to your favorite dinos`);
     }
   }
 
+  //Delete dino using petition DELETE to API if user confirm it (using Swal)
   function deleteDinosaur() {
     Swal.fire({
       title: "Are you sure?",
@@ -83,6 +87,9 @@ function DinoComponent() {
       }
     });
   }
+  //Check if user is admin
+  const isAdmin = () =>
+    jwt && userRoles.includes("ROLE_ADMIN") ? true : false;
 
   return (
     <div className="dinoAbout">
@@ -98,6 +105,7 @@ function DinoComponent() {
         <h6>Period: {isLoaded && dino.period.name}</h6>
         <h6>Continent: {isLoaded && dino.continent.name}</h6>
         <div className="container text-center">
+          {/* If user is logged then return a button for adding dinos to favorites */}
           {jwt && (
             <div style={{ textAlign: "center", color: "#ff6347" }}>
               <button
@@ -108,7 +116,8 @@ function DinoComponent() {
               </button>
             </div>
           )}
-          {userRoles.includes("ROLE_ADMIN") && (
+          {/* Return a div with Edit and Delete button if user is Admin */}
+          {isAdmin() && (
             <div className="m-2">
               <Link to={`/EditDino/${ID}`}>
                 <button className="btn btn-warning ml-3"> EDIT</button>

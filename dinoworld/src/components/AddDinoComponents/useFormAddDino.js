@@ -5,6 +5,7 @@ import { urlApi, DinoContext } from "../../App";
 //Creating a custom hook for form validation
 
 const useFormAddDino = (callback, validateForm) => {
+  //Assign default values to every property of values object
   const [values, setValues] = useState({
     name: "",
     weight: "",
@@ -21,6 +22,7 @@ const useFormAddDino = (callback, validateForm) => {
 
   const { jwt } = useContext(DinoContext);
 
+  //Assign errors to an empty object
   const [errors, setErrors] = useState({});
 
   //Assign isSubmitteng to false before handleSubmit is processed
@@ -28,6 +30,7 @@ const useFormAddDino = (callback, validateForm) => {
 
   //Handlind form inserts and set them to the values
   const handleChange = e => {
+    //With destructuring we assign new values and property to the values object
     const { name, value } = e.target;
 
     setValues({
@@ -37,7 +40,6 @@ const useFormAddDino = (callback, validateForm) => {
   };
 
   //Handling inserted file (img)
-
   const handleFile = e => {
     const { name, files } = e.target;
 
@@ -47,11 +49,12 @@ const useFormAddDino = (callback, validateForm) => {
     });
   };
 
+  //!!!Handle submit is need to be rechecked and improved
   const handleSubmit = e => {
     //Prevent default refresh when submitting a form
-
     e.preventDefault();
 
+    //Check for curent errors befor sending data to the api
     const currentErrors = validateForm(values);
     setErrors(currentErrors);
 
@@ -62,6 +65,7 @@ const useFormAddDino = (callback, validateForm) => {
 
     setIsSubmitting(true);
 
+    //Create FormData to send to the API
     const formData = new FormData();
     formData.append("name", values.name);
     formData.append("weight", values.weight);
@@ -75,6 +79,7 @@ const useFormAddDino = (callback, validateForm) => {
     formData.append("info", values.info);
     formData.append("img", values.img);
 
+    //Make POST with users jwt(need to have role ADMIN)
     fetch(`${urlApi}/register/dinosaur`, {
       method: "POST",
       cors: "CORS",
@@ -92,7 +97,7 @@ const useFormAddDino = (callback, validateForm) => {
     );
   };
 
-  //Check if there are not errors and if not then return isSubmitting
+  //Check if there are not errors and if isSubmitting is true than invoke function callback
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();

@@ -1,9 +1,11 @@
 import React from "react";
 import "../FormComponents/Form.css";
 import useFormAddDino from "./useFormAddDino";
+//Using the same validate component
 import validateForm from "../EditDinoComponents/validateForm";
 
 export default function AddDinoForm({ submitForm }) {
+  //Using destructuring we assign this elements to custom hook
   const {
     handleFile,
     handleChange,

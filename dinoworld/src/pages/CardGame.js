@@ -3,8 +3,10 @@ import React, { useState, useContext, useEffect } from "react";
 import { urlApi, DinoContext } from "../App";
 
 export default function CardGame() {
+  //Get token from Dinocontext
   const { jwt } = useContext(DinoContext);
 
+  //Set default values
   const [newGame, setNewGame] = useState(false);
   const [dinos, setDinos] = useState([]);
   const [visibleDinos, setVisibleDinos] = useState([]);
@@ -13,7 +15,7 @@ export default function CardGame() {
 
   //Check clicked dinos for match
   const checkForMatch = (firstIndex, secondIndex) => {
-    //IF indexes doesn't match and dinos name are equal set finished dinos with that indexes
+    //IF indexes doesn't match and dinos name are equal set them to finished dinos with that indexes
     if (
       firstIndex !== secondIndex &&
       dinos[firstIndex].name === dinos[secondIndex].name
@@ -38,20 +40,21 @@ export default function CardGame() {
     })
       .then(response => response.json())
       .then(dinos => {
+        //Create an array of response data using map method
         const newList = dinos.map(dino => {
+          //return only property needed for a game
           return {
             id: dino.ID,
             name: dino.name,
             img: dino.img
           };
         });
+        //Set to dinos an array concatenated with another array which is created using map with changing ID property
         setDinos(
           newList
             .concat(
               // Using concat method on a new list of dinos we dublicate every dino in the array
               newList.map(dino => {
-                // console.log(newList);
-
                 return {
                   ...dino,
                   id: dino.id + "1" //change id property by adding a "1" for dublicated dinos
@@ -78,6 +81,7 @@ export default function CardGame() {
     <div>
       <div className="text-center p-4 d-flex flex-column">
         <button
+          // when button is clicked we set all to a default values
           onClick={() => {
             setNewGame(!newGame);
             setVisibleDinos([]);
