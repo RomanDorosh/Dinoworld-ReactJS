@@ -3,6 +3,7 @@ import useFormSignUp from "./useFormSignUp";
 import validateFormSignUp from "./validateFormSignUp";
 
 const FormSignUp = ({ submitForm }) => {
+  //Using destructuring we assign this elements to custom hook
   const { handleChange, values, handleSubmit, errors } = useFormSignUp(
     submitForm,
     validateFormSignUp

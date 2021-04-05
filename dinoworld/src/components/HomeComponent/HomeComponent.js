@@ -9,6 +9,7 @@ function HomeComponent({ isLoading }) {
 
   return (
     <div>
+      {/* Is loading is true then return this two components */}
       {!isLoading && (
         <>
           <div className="grid-container">

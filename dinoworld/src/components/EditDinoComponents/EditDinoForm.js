@@ -4,6 +4,7 @@ import useFormEditDino from "./useFormEditDino";
 import validateForm from "./validateForm";
 
 export default function AddDinoForm({ submitForm }) {
+  //Using destructuring we assign this elements to custom hook
   const {
     handleFile,
     handleChange,
@@ -102,7 +103,7 @@ export default function AddDinoForm({ submitForm }) {
             id="period"
             name="period"
             className="input-field"
-            value={values.period.ID}
+            value={values.period.ID} //Need to get ID, not name
             onChange={handleChange}
           >
             <option value="1">Triassic</option>
@@ -119,7 +120,7 @@ export default function AddDinoForm({ submitForm }) {
             id="diet"
             name="diet"
             className="input-field"
-            value={values.diet.ID}
+            value={values.diet.ID} //Need to get ID, not name
             onChange={handleChange}
           >
             <option value="1">Carnivore</option>
@@ -136,7 +137,7 @@ export default function AddDinoForm({ submitForm }) {
             id="continent"
             name="continent"
             className="input-field"
-            value={values.continent.ID}
+            value={values.continent.ID} //Need to get ID, not name
             onChange={handleChange}
           >
             <option value="1">South America</option>

@@ -1,10 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import * as IconName from "react-icons/md";
 import { Link } from "react-router-dom";
 import { urlApi, DinoContext } from "../../App";
-import jwt_decode from "jwt-decode";
 import Swal from "sweetalert2";
-import { DinoHomeContext } from "../../pages/Home";
 
 export default function DinoCardComponent({
   ID,
@@ -17,9 +15,9 @@ export default function DinoCardComponent({
 }) {
   const { jwt, userEmail } = useContext(DinoContext);
 
+  //!!!This function and all component I have to revise and improve  totally
   function toggleDinosaur() {
-    console.log("im clicked");
-
+    //check if dino's users array is empty
     if (users.length !== 0) {
       fetch(`${urlApi}/favorite/remove/${ID}`, {
         method: "DELETE",
@@ -50,6 +48,7 @@ export default function DinoCardComponent({
 
   let actionButton = "buttonFovorite";
 
+  //Check is dino's array of users include email of logged user
   if (jwt) {
     users.forEach(element => {
       if (element.email === userEmail) {
@@ -73,6 +72,7 @@ export default function DinoCardComponent({
         <h6>Period: {period.name}</h6>
       </Link>
       <div style={{ textAlign: "center", color: "#ff6347" }}>
+        {/* If user is logged then return a button for adding dinos to favorites */}
         {jwt && (
           <button className={actionButton} onClick={() => toggleDinosaur()}>
             <IconName.MdFavorite size={25} />

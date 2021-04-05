@@ -4,6 +4,7 @@ import { urlApi } from "../../App";
 //Creating a custom hook for form validation
 
 const useFormSignUp = (callback, validateFormSignUp) => {
+  //Assign default values to every property of values object
   const [values, setValues] = useState({
     name: "",
     lastname: "",
@@ -13,12 +14,15 @@ const useFormSignUp = (callback, validateFormSignUp) => {
     passwordConfirm: ""
   });
 
+  //Assign errors to an empty object
   const [errors, setErrors] = useState({});
 
   //Assign isSubmitteng to false before handleSubmit is processed
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  //Handlind form inserts and set them to the values
   const handleChange = e => {
+    //With destructuring we assign new values and property to the values object
     const { name, value } = e.target;
 
     setValues({
@@ -27,21 +31,24 @@ const useFormSignUp = (callback, validateFormSignUp) => {
     });
   };
 
+  //!!!Handle sumbit is need to be rechecked and improved
   const handleSubmit = e => {
     //Prevent default refresh when submitting a form
 
     e.preventDefault();
 
+    //Check for curent errors befor sending data to the api
     const currentErrors = validateFormSignUp(values);
     setErrors(currentErrors);
 
+    //Check if object of values have some errors, is so we  executing handle submit function
     if (Object.values(currentErrors).some(error => error)) {
       return;
     }
 
-    setErrors(validateFormSignUp(values));
     setIsSubmitting(true);
 
+    //Make post with inserted data to registr user
     fetch(`${urlApi}/register/user`, {
       method: "POST",
       cors: "CORS",

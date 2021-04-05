@@ -3,6 +3,7 @@ import useFormLogIn from "./useFormLogIn";
 import validateFormLogIn from "./validateFormLogIn";
 
 const FormLogIn = ({ submitForm }) => {
+  //Using destructuring we assign this elements to custom hook
   const { handleChange, values, handleSubmit, errors } = useFormLogIn(
     submitForm,
     validateFormLogIn

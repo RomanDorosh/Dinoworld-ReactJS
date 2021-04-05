@@ -10,6 +10,7 @@ import jwt_decode from "jwt-decode";
 function Navbar() {
   const { jwt, setJwt, setUserRoles, setUserEmail } = useContext(DinoContext);
 
+  //Array of object that is used for navbar data
   const SidebarData = [
     {
       title: "Dinos",
@@ -55,6 +56,7 @@ function Navbar() {
     localStorage.removeItem("userEmail");
     localStorage.removeItem("userRoles");
 
+    //Set user token, email and roles to null when logout
     setJwt(null);
     setUserEmail(null);
     setUserRoles(null);
@@ -114,10 +116,7 @@ function Navbar() {
       {/* Changes a class depending of a state of side bar */}
 
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-        <ul
-          className="nav-menu-items"
-          onClick={showsidebar} /*</nav>onMouseLeave={showsidebar}*/
-        >
+        <ul className="nav-menu-items" onClick={showsidebar}>
           {/* The "map" method from stored data made a bunch of links for a sidebar */}
           {SidebarData.map((item, index) => {
             return (

@@ -33,6 +33,7 @@ export default function Table() {
           type="search"
           placeholder="Search"
           aria-label="Search"
+          //With every pressed button we assign that value and make search with it
           onChange={e => setSearchInput(e.target.value.toLowerCase())}
         />
       </div>

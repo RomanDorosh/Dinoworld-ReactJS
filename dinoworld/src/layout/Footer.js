@@ -10,6 +10,7 @@ export default function Footer() {
         <span className="text-light">
           © 2021 Copyright: "DinoWorld" developed and design by{" "}
         </span>
+        {/* link to my linkedIn profile */}
         <a
           href="https://www.linkedin.com/in/roman-dorosh-2b26121bb/"
           target="_blank"

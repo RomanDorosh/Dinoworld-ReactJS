@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 //Creating a custom hook for form validation
 
 const useFormEditDino = (callback, validateForm) => {
+  //Assign default values to every property of values object
   const [values, setValues] = useState({
     name: "",
     weight: "",
@@ -19,8 +20,10 @@ const useFormEditDino = (callback, validateForm) => {
     img: []
   });
 
+  //Using useParams hook get ID of dino that was clicked
   const { ID } = useParams();
 
+  //Making a fetch  with use effect, with dependencie of ID
   useEffect(() => {
     fetch(`${urlApi}/dinosaur/${ID}`)
       .then(resp => resp.json())
@@ -32,6 +35,7 @@ const useFormEditDino = (callback, validateForm) => {
 
   const { jwt } = useContext(DinoContext);
 
+  //Assign errors to an empty object
   const [errors, setErrors] = useState({});
 
   //Assign isSubmitteng to false before handleSubmit is processed
@@ -39,6 +43,7 @@ const useFormEditDino = (callback, validateForm) => {
 
   //Handlind form inserts and set them to the values
   const handleChange = e => {
+    //With destructuring we assign new values and property to the values object
     const { name, value } = e.target;
 
     setValues({
@@ -58,11 +63,13 @@ const useFormEditDino = (callback, validateForm) => {
     });
   };
 
+  //!!!Handle submit is need to be rechecked and improved
   const handleSubmit = e => {
     //Prevent default refresh when submitting a form
 
     e.preventDefault();
 
+    //Check for curent errors befor sending data to the api
     const currentErrors = validateForm(values);
     setErrors(currentErrors);
 
@@ -71,24 +78,23 @@ const useFormEditDino = (callback, validateForm) => {
       return;
     }
 
-    setErrors(validateForm(values));
     setIsSubmitting(true);
 
+    //Create FormData to send to the API
     const formData = new FormData();
     formData.append("name", values.name);
     formData.append("weight", values.weight);
     formData.append("height", values.height);
     formData.append("lenght", values.lenght);
     formData.append("top_speed", values.top_speed);
-    formData.append("period", values.period);
-    formData.append("diet", values.diet);
-    formData.append("continent", values.continent);
-    formData.append("top", values.top);
+    formData.append("period", values.period.ID); //We need to send ID, not name to API
+    formData.append("diet", values.diet.ID); //We need to send ID, not name to API
+    formData.append("continent", values.continent.ID); //We need to send ID, not name to API
+    formData.append("top", values.top * 1); // Convert boolean to a number for API
     formData.append("info", values.info);
     formData.append("img", values.img);
 
-    console.log(formData);
-
+    //Make POST with users jwt(need to have role ADMIN)
     fetch(`${urlApi}/dinosaur/edit/${ID}`, {
       method: "POST",
       cors: "CORS",

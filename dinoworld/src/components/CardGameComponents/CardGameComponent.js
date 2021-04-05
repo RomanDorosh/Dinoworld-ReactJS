@@ -14,6 +14,7 @@ export default function CardGameComponent({
         {dinos.map((dino, index) => (
           <DinoCardGameComponent
             key={dino.id}
+            //Return class name depending on if index of current dino is in visibleDinos array and if in finishedDinos array to
             className={`${
               visibleDinos.includes(index) ? "grid-game-card-open" : ""
             }
@@ -23,7 +24,7 @@ export default function CardGameComponent({
               : ""
           }`}
             onClick={() => {
-              console.log("I'm clicked");
+              //If finished dinos array doesn't contain currect dino index - make switch
               if (!finishedDinos.includes(index)) {
                 //chek if finishedDino doesn't include index of current dino
                 switch (visibleDinos.length) {

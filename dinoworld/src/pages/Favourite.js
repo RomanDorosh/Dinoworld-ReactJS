@@ -7,6 +7,7 @@ export default function Favourite() {
 
   const { jwt } = useContext(DinoContext);
 
+  //Get favorites dino of logged user from API adn set them to the dinosFavorite
   useEffect(() => {
     fetch(`${urlApi}/favorite/`, {
       method: "GET",
