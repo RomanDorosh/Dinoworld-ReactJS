@@ -1,4 +1,4 @@
-[Screenshop of DinoWorld App](/src/images/ScreenShot.png "DinoWorld")
+![Screenshot of DinoWorld App](https://github.com/RomanDorosh/Final_project_for_Bootcamp_Front_End/blob/main/dinoworld/src/images/ScreenShot.png)
 
 # DinoWorld Webapp
 Discover with your children the most monstrous animals of prehistory. Enjoy meeting different dinosaurs and play with them.
