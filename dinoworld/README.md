@@ -1,3 +1,5 @@
+[Screenshop of DinoWorld App](/src/images/ScreenShot.png "DinoWorld")
+
 # DinoWorld Webapp
 Discover with your children the most monstrous animals of prehistory. Enjoy meeting different dinosaurs and play with them.
 
