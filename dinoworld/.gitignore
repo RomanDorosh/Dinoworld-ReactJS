@@ -24,3 +24,5 @@ yarn-error.log*
 
 # images
 /src/images/dinosaurus
+
+.eslintcache
